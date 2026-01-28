@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'PT Sans Narrow', sans-serif;
+  
+  --color-primary: #1E3A8A;
+  --color-accent: #3B82F6;
+  --color-bg: #F8FAFC;
+}
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
+}
+
+body {
+  background: radial-gradient(circle at top right, #DBEAFE 0%, #F8FAFC 50%, #EFF6FF 100%);
+  color: #1E293B;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+.heading-modern {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+.section-transition {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
