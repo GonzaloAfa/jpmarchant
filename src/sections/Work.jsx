@@ -1,6 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Calendar, Building2 } from 'lucide-react';
+import { Calendar, Building2 } from 'lucide-react';
+import { Badge } from '../components/atoms/Badge';
+import { Heading, Text } from '../components/atoms/Typography';
+import { SectionHeader } from '../components/molecules/SectionHeader';
 
 const workData = [
     { period: '2014 - Presente', company: 'Centro Humain Ltda', role: 'Socio Fundador y Director', description: 'Atención psicológica y servicios integrales de salud con enfoque humanista.' },
@@ -12,14 +15,14 @@ const workData = [
 
 const Work = () => {
     return (
-        <div className="py-12">
-            <h2 className="heading-modern text-4xl font-bold text-slate-900 mb-12 uppercase tracking-tight">
-                Experiencia <span className="text-blue-600">Profesional</span>
-            </h2>
+        <section className="py-12" aria-labelledby="work-title">
+            <div id="work-title">
+                <SectionHeader title="Experiencia" highlight="Profesional" />
+            </div>
 
             <div className="relative border-l border-slate-200 ml-3 space-y-12">
                 {workData.map((job, index) => (
-                    <motion.div
+                    <motion.article
                         key={index}
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -27,28 +30,26 @@ const Work = () => {
                         transition={{ delay: index * 0.1 }}
                         className="pl-8 relative"
                     >
-                        <div className="absolute w-4 h-4 bg-blue-600 rounded-full -left-[8.5px] top-1.5 border-4 border-white shadow-sm shadow-blue-200" />
+                        <div className="absolute w-4 h-4 bg-blue-600 rounded-full -left-[8.5px] top-1.5 border-4 border-white shadow-sm shadow-blue-200" aria-hidden="true" />
 
-                        <div className="flex flex-col md:flex-row md:items-center gap-2 mb-2">
-                            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 text-xs font-bold uppercase">
-                                <Calendar size={12} />
+                        <div className="flex flex-col md:flex-row md:items-center gap-2 mb-3">
+                            <Badge variant="slate" className="w-fit">
+                                <Calendar size={12} aria-hidden="true" />
                                 {job.period}
-                            </span>
-                            <span className="hidden md:block text-slate-300">•</span>
-                            <span className="text-blue-600 font-bold heading-modern flex items-center gap-1">
-                                <Building2 size={16} />
+                            </Badge>
+                            <span className="hidden md:block text-slate-300" aria-hidden="true">•</span>
+                            <Text variant="tiny" className="text-blue-600 font-bold flex items-center gap-1">
+                                <Building2 size={14} aria-hidden="true" />
                                 {job.company}
-                            </span>
+                            </Text>
                         </div>
 
-                        <h4 className="text-2xl font-bold text-slate-900 mb-3">{job.role}</h4>
-                        <p className="text-slate-500 pt-sans text-lg leading-relaxed max-w-2xl">
-                            {job.description}
-                        </p>
-                    </motion.div>
+                        <Heading level={4} className="mb-2">{job.role}</Heading>
+                        <Text className="max-w-2xl">{job.description}</Text>
+                    </motion.article>
                 ))}
             </div>
-        </div>
+        </section>
     );
 };
 

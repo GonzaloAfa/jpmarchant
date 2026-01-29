@@ -1,6 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap, Award, BookCheck } from 'lucide-react';
+import { Badge } from '../components/atoms/Badge';
+import { Heading, Text } from '../components/atoms/Typography';
+import { SectionHeader } from '../components/molecules/SectionHeader';
 
 const educationData = [
     { period: '2025', title: 'Doctor en Políticas Públicas (Máximo Honor)', institution: 'Universidad Mayor', icon: Award, highlight: true },
@@ -12,14 +15,14 @@ const educationData = [
 
 const Education = () => {
     return (
-        <div className="py-12">
-            <h2 className="heading-modern text-3xl md:text-4xl font-bold text-slate-900 mb-8 md:mb-12 uppercase tracking-tight">
-                Formación <span className="text-blue-600">Académica</span>
-            </h2>
+        <section className="py-12" aria-labelledby="education-title">
+            <div id="education-title">
+                <SectionHeader title="Formación" highlight="Académica" />
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
                 {educationData.map((edu, index) => (
-                    <motion.div
+                    <motion.article
                         key={index}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -32,24 +35,24 @@ const Education = () => {
                     >
                         <div className="flex items-start gap-4">
                             <div className={`p-3 rounded-xl md:rounded-2xl shrink-0 ${edu.highlight ? 'bg-white/20' : 'bg-blue-50'}`}>
-                                <edu.icon size={24} className={edu.highlight ? 'text-white' : 'text-blue-600'} />
+                                <edu.icon size={24} className={edu.highlight ? 'text-white' : 'text-blue-600'} aria-hidden="true" />
                             </div>
                             <div className="min-w-0">
-                                <span className={`text-[10px] md:text-xs font-bold uppercase tracking-widest ${edu.highlight ? 'text-blue-100' : 'text-slate-400'}`}>
+                                <Badge variant={edu.highlight ? 'white' : 'slate'} className="mb-2">
                                     {edu.period}
-                                </span>
-                                <h4 className="text-lg md:text-2xl font-bold heading-modern mt-1 mb-1 leading-tight truncate-multiline">
+                                </Badge>
+                                <Heading level={4} className={edu.highlight ? 'text-white' : ''}>
                                     {edu.title}
-                                </h4>
-                                <p className={`text-sm md:text-lg pt-sans ${edu.highlight ? 'text-blue-50' : 'text-slate-500'}`}>
+                                </Heading>
+                                <Text className={edu.highlight ? 'text-blue-50' : ''}>
                                     {edu.institution}
-                                </p>
+                                </Text>
                             </div>
                         </div>
-                    </motion.div>
+                    </motion.article>
                 ))}
             </div>
-        </div>
+        </section>
     );
 };
 
