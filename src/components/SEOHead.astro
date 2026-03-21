@@ -62,5 +62,14 @@ const jsonLd = {
 <!-- JSON-LD -->
 <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ELCQXC3N20"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ELCQXC3N20');
+</script>
+
 <!-- Preload fonts -->
 <link rel="preload" href="/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin />
