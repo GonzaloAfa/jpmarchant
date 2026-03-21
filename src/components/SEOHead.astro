@@ -1,0 +1,66 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+}
+
+const { title, description, canonical, ogImage = '/og-image.jpg' } = Astro.props;
+const siteUrl = 'https://jpmarchant.cl';
+const fullCanonical = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Juan Paulo Marchant Espinoza",
+  "jobTitle": "Investigador en Politicas Publicas y Violencia de Genero",
+  "url": siteUrl,
+  "email": "contacto@jpmarchant.cl",
+  "sameAs": [
+    "https://orcid.org/0000-0001-6651-7086",
+    "https://scholar.google.com/citations?user=Tn9IUL8AAAAJ",
+    "https://www.linkedin.com/in/juan-paulo-marchant-espinoza-80955733/",
+    "https://dialnet.unirioja.es/servlet/autor?codigo=2495974",
+    "https://investigadores.anid.cl/es/public_search/researcher?id=32968"
+  ],
+  "affiliation": [
+    { "@type": "Organization", "name": "Universidad Bernardo O'Higgins" },
+    { "@type": "Organization", "name": "Universidad Andres Bello" },
+    { "@type": "Organization", "name": "CEDIT - Nucleo Milenio" }
+  ],
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Universidad Mayor" },
+    { "@type": "CollegeOrUniversity", "name": "Universidad de Chile" }
+  ]
+};
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={fullCanonical} />
+<meta name="author" content="Juan Paulo Marchant Espinoza" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={fullCanonical} />
+<meta property="og:image" content={`${siteUrl}${ogImage}`} />
+<meta property="og:locale" content="es_CL" />
+<meta property="og:site_name" content="Juan Paulo Marchant Espinoza" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+<!-- JSON-LD -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+<!-- Preload fonts -->
+<link rel="preload" href="/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin />

@@ -1,0 +1,114 @@
+---
+const currentPath = Astro.url.pathname;
+
+const links = [
+  { href: '/', label: 'Inicio' },
+  { href: '/publicaciones', label: 'Publicaciones' },
+  { href: '/investigacion', label: 'Investigacion' },
+  { href: '/docencia', label: 'Docencia' },
+  { href: '/trayectoria', label: 'Trayectoria' },
+  { href: '/prensa', label: 'Prensa' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-neutral-200">
+  <nav class="max-w-6xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
+    <a href="/" class="flex flex-col leading-tight no-underline">
+      <span class="font-serif font-bold text-lg text-primary-500">JP Marchant</span>
+      <span class="text-[10px] tracking-widest uppercase text-neutral-400">Investigador</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <ul class="hidden lg:flex items-center gap-1">
+      {links.map(link => (
+        <li>
+          <a
+            href={link.href}
+            class:list={[
+              'px-3 py-2 text-sm font-medium rounded-md transition-colors no-underline',
+              currentPath === link.href
+                ? 'text-primary-500 bg-primary-50'
+                : 'text-neutral-600 hover:text-primary-500 hover:bg-primary-50'
+            ]}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+      <li>
+        <a href="/contacto" class="ml-2 px-4 py-2 text-sm font-medium text-white bg-primary-500 rounded-md hover:bg-primary-600 transition-colors no-underline">
+          Contacto
+        </a>
+      </li>
+    </ul>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="menu-toggle"
+      class="lg:hidden p-2 text-neutral-700"
+      aria-label="Abrir menu"
+      aria-expanded="false"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div id="mobile-menu" class="lg:hidden hidden fixed inset-0 z-50">
+    <div class="absolute inset-0 bg-black/40" id="menu-overlay"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-72 bg-white shadow-xl p-8 flex flex-col">
+      <button id="menu-close" class="self-end p-2 text-neutral-500 mb-6" aria-label="Cerrar menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <ul class="flex flex-col gap-1">
+        {links.map(link => (
+          <li>
+            <a
+              href={link.href}
+              class:list={[
+                'block px-4 py-3 rounded-md text-base font-medium no-underline',
+                currentPath === link.href
+                  ? 'text-primary-500 bg-primary-50'
+                  : 'text-neutral-700 hover:bg-neutral-100'
+              ]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <a href="/contacto" class="mt-6 block text-center px-4 py-3 text-white bg-primary-500 rounded-md font-medium no-underline hover:bg-primary-600">
+        Contacto
+      </a>
+      <div class="mt-auto pt-8 flex gap-4 justify-center text-neutral-400">
+        <a href="https://orcid.org/0000-0001-6651-7086" target="_blank" rel="noopener" class="hover:text-primary-500 text-xs no-underline">ORCID</a>
+        <a href="https://scholar.google.com/citations?user=Tn9IUL8AAAAJ" target="_blank" rel="noopener" class="hover:text-primary-500 text-xs no-underline">Scholar</a>
+        <a href="https://www.linkedin.com/in/juan-paulo-marchant-espinoza-80955733/" target="_blank" rel="noopener" class="hover:text-primary-500 text-xs no-underline">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const close = document.getElementById('menu-close');
+  const overlay = document.getElementById('menu-overlay');
+
+  function openMenu() {
+    menu?.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    menu?.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  toggle?.addEventListener('click', openMenu);
+  close?.addEventListener('click', closeMenu);
+  overlay?.addEventListener('click', closeMenu);
+</script>

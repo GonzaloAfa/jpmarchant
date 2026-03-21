@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const bio = 'Juan Paulo Marchant Espinoza es psicologo de la Universidad de Chile, Doctor en Politicas Publicas por la Universidad Mayor, y especialista en femicidio, violencia de genero y politicas publicas. Fue Coordinador Nacional de Casas de Acogida en SernamEG (2012-2018). Es autor de mas de 17 publicaciones academicas y actualmente ejerce docencia en la Universidad Bernardo O\'Higgins, la Universidad Andres Bello y la Universidad Gabriela Mistral. Investigador Joven del CEDIT - Nucleo Milenio (ANID).';
+
+const topics = [
+  {
+    title: 'Femicidio en Chile',
+    description: 'Analisis territorial, estadisticas, patrones y factores estructurales del femicidio en el pais.',
+  },
+  {
+    title: 'Violencia de genero',
+    description: 'Dinamicas de la violencia de pareja, ciclos de violencia y perspectivas de intervencion.',
+  },
+  {
+    title: 'Politicas publicas de genero',
+    description: 'Evaluacion de politicas de proteccion, prevencion y reparacion a victimas de violencia.',
+  },
+  {
+    title: 'Medidas cautelares',
+    description: 'Eficacia y limitaciones de las medidas de proteccion judicial en casos de violencia de genero.',
+  },
+  {
+    title: 'Casas de acogida',
+    description: 'Funcionamiento, desafios y propuestas para los dispositivos de proteccion a mujeres victimas de violencia.',
+  },
+];
+
+const appearances = [
+  {
+    type: 'Columna',
+    outlet: 'CIPER Chile',
+    title: 'Desigualdad territorial y violencia contra las mujeres en Chile: una mirada critica',
+    url: 'https://www.ciperchile.cl/2025/10/06/desigualdad-territorial-y-violencia-contra-las-mujeres-en-chile-una-mirada-critica/',
+    date: '6 de octubre, 2025',
+  },
+];
+---
+
+<BaseLayout
+  title="Prensa | Dr. Juan Paulo Marchant Espinoza"
+  description="Recursos para medios de comunicacion. Biografia, temas de experticia y contacto para entrevistas del Dr. Juan Paulo Marchant Espinoza."
+>
+  <!-- Hero -->
+  <section class="relative bg-primary-900 text-white noise overflow-hidden">
+    <div class="gradient-blur w-80 h-80 bg-accent-500 -top-24 -right-24"></div>
+    <div class="gradient-blur w-96 h-96 bg-primary-300 -bottom-40 -left-40"></div>
+
+    <div class="relative max-w-6xl mx-auto px-4 md:px-8 py-24 md:py-32">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 mb-8">
+        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+        <span class="text-sm text-neutral-300">Prensa y medios</span>
+      </div>
+      <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6">Recursos para medios</h1>
+      <p class="text-neutral-300 max-w-2xl leading-relaxed text-lg">Material y contacto para periodistas, medios de comunicacion y organizaciones que requieran comentario experto.</p>
+    </div>
+  </section>
+
+  <!-- Copyable Bio -->
+  <section class="py-24 md:py-32">
+    <div class="max-w-6xl mx-auto px-4 md:px-8">
+      <div class="reveal">
+        <div class="section-divider mb-6"></div>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-3">Biografia para medios</h2>
+        <p class="text-neutral-500 mb-10 max-w-2xl">Texto listo para copiar y utilizar en notas de prensa, presentaciones y publicaciones.</p>
+      </div>
+
+      <div class="reveal-scale relative bg-white border border-neutral-200 rounded-2xl p-8 max-w-3xl">
+        <p id="bio-text" class="text-neutral-700 leading-relaxed">{bio}</p>
+        <button
+          id="copy-bio-btn"
+          class="mt-6 px-6 py-2.5 text-sm font-medium bg-primary-500 text-white rounded-lg hover:bg-primary-700 transition-all duration-300 cursor-pointer"
+        >
+          Copiar biografia
+        </button>
+        <span id="copy-feedback" class="ml-3 text-sm text-green-600 font-medium hidden">Copiado</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="h-px bg-gradient-to-r from-transparent via-neutral-300 to-transparent"></div>
+
+  <!-- Topics -->
+  <section class="bg-neutral-100 border-y border-neutral-200 py-24 md:py-32">
+    <div class="max-w-6xl mx-auto px-4 md:px-8">
+      <div class="reveal">
+        <div class="section-divider mb-6"></div>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-3">Temas de experticia</h2>
+        <p class="text-neutral-500 mb-12 max-w-2xl">Disponible para comentario experto en los siguientes temas.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+        {topics.map(topic => (
+          <div class="card-hover bg-white border border-neutral-200 rounded-2xl p-6">
+            <h3 class="font-semibold text-neutral-900 mb-2">{topic.title}</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed">{topic.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="h-px bg-gradient-to-r from-transparent via-neutral-300 to-transparent"></div>
+
+  <!-- Media Appearances -->
+  <section class="py-24 md:py-32">
+    <div class="max-w-6xl mx-auto px-4 md:px-8">
+      <div class="reveal">
+        <div class="section-divider mb-6"></div>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-3">Apariciones en medios</h2>
+        <p class="text-neutral-500 mb-12 max-w-2xl">Participaciones destacadas en medios de comunicacion.</p>
+      </div>
+
+      <div class="max-w-3xl space-y-4 stagger-children">
+        {appearances.map(item => (
+          <a href={item.url} target="_blank" rel="noopener" class="card-hover block bg-white border border-neutral-200 rounded-2xl p-6 flex items-start gap-4 no-underline group">
+            <span class="flex-shrink-0 w-12 h-12 rounded-2xl bg-primary-50 text-primary-500 flex items-center justify-center text-sm font-bold uppercase">{item.type.charAt(0)}</span>
+            <div class="flex-1">
+              <p class="text-xs text-neutral-400 font-mono">{item.date}</p>
+              <h3 class="font-semibold text-neutral-900 group-hover:text-primary-500 transition-colors mt-1">{item.title}</h3>
+              <p class="text-sm text-neutral-500 mt-1">{item.outlet} &middot; {item.type}</p>
+            </div>
+            <svg class="w-4 h-4 text-neutral-300 group-hover:text-primary-500 transition-all duration-300 group-hover:translate-x-1 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="h-px bg-gradient-to-r from-transparent via-neutral-300 to-transparent"></div>
+
+  <!-- Interview CTA -->
+  <section class="relative bg-primary-500 text-white noise overflow-hidden">
+    <div class="gradient-blur w-72 h-72 bg-white -top-20 -right-20"></div>
+    <div class="gradient-blur w-64 h-64 bg-accent-500 -bottom-16 -left-16"></div>
+
+    <div class="relative max-w-6xl mx-auto px-4 md:px-8 py-24 md:py-32 text-center">
+      <div class="reveal">
+        <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4">Solicitar entrevista</h2>
+        <p class="text-primary-100 max-w-xl mx-auto mb-10">Disponible para entrevistas, columnas de opinion y comentarios expertos en medios de comunicacion.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="mailto:contacto@jpmarchant.cl?subject=Solicitud%20de%20entrevista" class="group inline-flex items-center gap-2 px-8 py-3 bg-white text-primary-900 font-semibold rounded-lg hover:bg-neutral-100 transition-all duration-300 no-underline">
+            Contactar por email
+            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+          </a>
+          <a href="/contacto" class="group inline-flex items-center gap-2 px-8 py-3 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 no-underline">
+            Formulario de contacto
+            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('copy-bio-btn');
+      const feedback = document.getElementById('copy-feedback');
+      const bioText = document.getElementById('bio-text');
+
+      if (btn && feedback && bioText) {
+        btn.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(bioText.textContent || '');
+            feedback.classList.remove('hidden');
+            btn.textContent = 'Copiado';
+            setTimeout(() => {
+              feedback.classList.add('hidden');
+              btn.textContent = 'Copiar biografia';
+            }, 2000);
+          } catch {
+            // Fallback for older browsers
+            const range = document.createRange();
+            range.selectNode(bioText);
+            window.getSelection()?.removeAllRanges();
+            window.getSelection()?.addRange(range);
+            document.execCommand('copy');
+            window.getSelection()?.removeAllRanges();
+            feedback.classList.remove('hidden');
+            setTimeout(() => feedback.classList.add('hidden'), 2000);
+          }
+        });
+      }
+    });
+  </script>
+</BaseLayout>

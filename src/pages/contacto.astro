@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import personal from '../data/personal.json';
+
+const profiles = [
+  {
+    name: 'ORCID',
+    url: `https://orcid.org/${personal.orcid}`,
+    id: personal.orcid,
+    description: 'Identificador academico global',
+  },
+  {
+    name: 'Google Scholar',
+    url: `https://scholar.google.com/citations?user=${personal.googleScholar}`,
+    id: personal.googleScholar,
+    description: 'Publicaciones y citas academicas',
+  },
+  {
+    name: 'Dialnet',
+    url: `https://dialnet.unirioja.es/servlet/autor?codigo=${personal.dialnet}`,
+    id: personal.dialnet,
+    description: 'Portal de difusion hispanica',
+  },
+  {
+    name: 'ANID',
+    url: `https://investigadores.anid.cl/es/public_search/researcher?id=${personal.anid}`,
+    id: personal.anid,
+    description: 'Perfil de investigador Chile',
+  },
+  {
+    name: 'LinkedIn',
+    url: `https://www.linkedin.com/in/${personal.linkedin}`,
+    id: personal.linkedin,
+    description: 'Red profesional',
+  },
+];
+
+const ctas = [
+  {
+    title: 'Proponer colaboracion',
+    description: 'Proyectos de investigacion, publicaciones conjuntas o redes academicas.',
+    subject: 'Propuesta de colaboracion academica',
+  },
+  {
+    title: 'Solicitar entrevista',
+    description: 'Comentario experto para medios de comunicacion, columnas o reportajes.',
+    subject: 'Solicitud de entrevista',
+  },
+  {
+    title: 'Consultar por supervision de tesis',
+    description: 'Guia de tesis de pregrado y posgrado en areas de genero, violencia y politicas publicas.',
+    subject: 'Consulta por supervision de tesis',
+  },
+];
+---
+
+<BaseLayout
+  title="Contacto | Dr. Juan Paulo Marchant Espinoza"
+  description="Contacto y perfiles academicos del Dr. Juan Paulo Marchant Espinoza. Email, ORCID, Google Scholar y mas."
+>
+  <!-- Hero -->
+  <section class="relative bg-primary-900 text-white noise overflow-hidden">
+    <div class="gradient-blur w-80 h-80 bg-accent-500 -top-24 -right-24"></div>
+    <div class="gradient-blur w-96 h-96 bg-primary-300 -bottom-40 -left-40"></div>
+
+    <div class="relative max-w-6xl mx-auto px-4 md:px-8 py-24 md:py-32">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 mb-8">
+        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+        <span class="text-sm text-neutral-300">Contacto</span>
+      </div>
+      <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6">Hablemos</h1>
+      <p class="text-neutral-300 max-w-2xl leading-relaxed text-lg">Abierto a colaboraciones de investigacion, invitaciones a conferencias, consultoria y contacto con medios de comunicacion.</p>
+    </div>
+  </section>
+
+  <!-- Email prominente -->
+  <section class="py-24 md:py-32">
+    <div class="max-w-6xl mx-auto px-4 md:px-8">
+
+      <div class="reveal-scale bg-white border border-neutral-200 rounded-2xl p-8 md:p-12 text-center mb-20 relative overflow-hidden">
+        <div class="gradient-blur w-48 h-48 bg-primary-300 -top-16 -right-16"></div>
+        <div class="gradient-blur w-40 h-40 bg-accent-500 -bottom-12 -left-12"></div>
+        <div class="relative">
+          <p class="text-sm text-neutral-500 uppercase tracking-wider font-medium mb-3">Email directo</p>
+          <a
+            href={`mailto:${personal.email}`}
+            class="text-2xl md:text-3xl font-semibold text-primary-500 hover:text-primary-700 no-underline transition-all duration-300"
+          >
+            {personal.email}
+          </a>
+          <p class="text-neutral-400 text-sm mt-3">Respuesta habitual en 24-48 horas</p>
+        </div>
+      </div>
+
+      <!-- Quick CTAs -->
+      <div class="reveal">
+        <div class="section-divider mb-6"></div>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-3">Escribir con motivo</h2>
+        <p class="text-neutral-500 mb-10 max-w-2xl">Seleccione el motivo de su contacto para agilizar la respuesta.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 mb-24 stagger-children">
+        {ctas.map(cta => (
+          <a
+            href={`mailto:${personal.email}?subject=${encodeURIComponent(cta.subject)}`}
+            class="card-hover bg-white border border-neutral-200 rounded-2xl p-6 no-underline group"
+          >
+            <h3 class="font-semibold text-neutral-900 group-hover:text-primary-500 transition-colors mb-2">{cta.title}</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed">{cta.description}</p>
+            <span class="group inline-flex items-center gap-2 mt-4 text-sm text-primary-500 font-medium">
+              Enviar email
+              <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+            </span>
+          </a>
+        ))}
+      </div>
+
+      <div class="h-px bg-gradient-to-r from-transparent via-neutral-300 to-transparent mb-24"></div>
+
+      <!-- Academic Profiles -->
+      <div class="reveal">
+        <div class="section-divider mb-6"></div>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-3">Perfiles academicos</h2>
+        <p class="text-neutral-500 mb-10 max-w-2xl">Encuentre publicaciones, metricas y trayectoria en las principales plataformas academicas.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 stagger-children">
+        {profiles.map(profile => (
+          <a
+            href={profile.url}
+            target="_blank"
+            rel="noopener"
+            class="card-hover flex items-center justify-between bg-white border border-neutral-200 rounded-2xl p-5 no-underline group"
+          >
+            <div>
+              <p class="font-semibold text-neutral-900 group-hover:text-primary-500 transition-colors">{profile.name}</p>
+              <p class="text-sm text-neutral-500 mt-0.5">{profile.description}</p>
+              <p class="text-xs font-mono text-neutral-400 mt-1">{profile.id}</p>
+            </div>
+            <svg class="w-5 h-5 text-neutral-300 group-hover:text-primary-500 transition-all duration-300 flex-shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+            </svg>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

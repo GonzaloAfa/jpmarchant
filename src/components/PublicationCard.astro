@@ -1,0 +1,100 @@
+---
+interface Props {
+  title: string;
+  authors: string[];
+  year: number;
+  type: string;
+  journal?: string;
+  publisher?: string;
+  volume?: string;
+  pages?: string;
+  doi?: string;
+  isbn?: string;
+  url?: string;
+  tags?: string[];
+}
+
+const { title, authors, year, type, journal, publisher, volume, pages, doi, isbn, url, tags = [] } = Astro.props;
+
+const typeLabel: Record<string, string> = {
+  article: 'Articulo',
+  book: 'Libro',
+  chapter: 'Capitulo',
+  thesis: 'Tesis',
+  conference: 'Congreso',
+};
+
+const typeGradient: Record<string, string> = {
+  article: 'from-primary-500 to-primary-700',
+  book: 'from-accent-500 to-accent-700',
+  chapter: 'from-[#6366F1] to-[#4338CA]',
+  thesis: 'from-[#059669] to-[#047857]',
+  conference: 'from-[#D97706] to-[#B45309]',
+};
+---
+
+<article class="group bg-white rounded-2xl border border-neutral-200 overflow-hidden transition-all duration-350 h-full flex flex-col">
+  <!-- Top gradient bar -->
+  <div class={`h-1 bg-gradient-to-r ${typeGradient[type] || 'from-neutral-300 to-neutral-400'} transition-all duration-300 group-hover:h-1.5`}></div>
+
+  <div class="p-6 flex flex-col gap-3 flex-1">
+    <div class="flex items-center justify-between text-xs">
+      <span class={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gradient-to-r ${typeGradient[type] || 'from-neutral-300 to-neutral-400'} text-white font-medium text-[10px] uppercase tracking-wider`}>
+        {typeLabel[type] || type}
+      </span>
+      <span class="text-neutral-400 font-mono text-sm">{year}</span>
+    </div>
+
+    <h3 class="font-serif font-semibold text-base leading-snug text-neutral-900 group-hover:text-primary-500 transition-colors duration-300">{title}</h3>
+
+    <p class="text-sm text-neutral-500">{authors.join(', ')}</p>
+
+    {journal && (
+      <p class="text-sm italic text-neutral-600">
+        {journal}{volume ? `, ${volume}` : ''}{pages ? `, pp. ${pages}` : ''}
+      </p>
+    )}
+
+    {publisher && (
+      <p class="text-sm text-neutral-600">{publisher}</p>
+    )}
+
+    {tags.length > 0 && (
+      <div class="flex flex-wrap gap-1.5 mt-1">
+        {tags.map(tag => (
+          <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-neutral-100 text-neutral-500 border border-neutral-200">{tag}</span>
+        ))}
+      </div>
+    )}
+
+    <div class="flex items-center gap-4 mt-auto pt-3 border-t border-neutral-100 text-sm">
+      {url && (
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener"
+          class="group/link inline-flex items-center gap-1.5 text-primary-500 hover:text-primary-700 font-medium no-underline transition-colors"
+        >
+          Ver publicacion
+          <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover/link:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+        </a>
+      )}
+      {doi && !url && (
+        <a
+          href={`https://doi.org/${doi}`}
+          target="_blank"
+          rel="noopener"
+          class="text-primary-500 hover:text-primary-700 font-medium no-underline transition-colors"
+        >
+          DOI &rarr;
+        </a>
+      )}
+      {doi && (
+        <span class="font-mono text-[10px] text-neutral-400 ml-auto">doi:{doi}</span>
+      )}
+      {isbn && (
+        <span class="font-mono text-[10px] text-neutral-400 ml-auto">ISBN: {isbn}</span>
+      )}
+    </div>
+  </div>
+</article>

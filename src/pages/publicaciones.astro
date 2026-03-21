@@ -1,0 +1,205 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PublicationCard from '../components/PublicationCard.astro';
+import publications from '../data/publications.json';
+
+const themes: Record<string, { title: string; intro: string }> = {
+  'femicidio-territorio': {
+    title: 'Femicidio y territorio',
+    intro: 'Investigacion sobre la dimension territorial del femicidio en Chile, incluyendo el analisis de medidas cautelares, capacidad estatal y las condiciones estructurales que permiten la violencia letal contra las mujeres.',
+  },
+  'genero-reparacion': {
+    title: 'Genero, violencia y reparacion',
+    intro: 'Trabajo academico centrado en la comprension de la violencia de genero, los procesos de reparacion psicosocial y las experiencias de victimas en distintos contextos latinoamericanos.',
+  },
+  'memoria-represion': {
+    title: 'Memoria, represion y poder',
+    intro: 'Reflexiones sobre las heridas de la dictadura militar chilena, la represion del lenguaje, las formas de violencia institucional y el rol del poder en las estructuras sociales.',
+  },
+  'desastres-trauma': {
+    title: 'Desastres y trauma psicosocial',
+    intro: 'Estudio del impacto psicosocial de los desastres naturales en Chile, con enfasis en el desplazamiento forzado y la reconstruccion de comunidades.',
+  },
+};
+
+const sorted = [...publications].sort((a, b) => b.year - a.year);
+---
+
+<BaseLayout
+  title="Publicaciones | Dr. Juan Paulo Marchant Espinoza"
+  description="Publicaciones academicas del Dr. Juan Paulo Marchant Espinoza: articulos, libros y capitulos sobre femicidio, violencia de genero y politicas publicas."
+>
+  <!-- Hero -->
+  <section class="relative bg-primary-900 text-white noise overflow-hidden">
+    <!-- Gradient blurs -->
+    <div class="gradient-blur w-72 h-72 bg-accent-500 -top-20 -right-20"></div>
+    <div class="gradient-blur w-96 h-96 bg-primary-300 -bottom-32 -left-32"></div>
+
+    <div class="relative max-w-6xl mx-auto px-4 md:px-8 py-24 md:py-32">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 mb-8">
+        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+        <span class="text-sm text-neutral-300">Produccion academica</span>
+      </div>
+      <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6">Publicaciones</h1>
+      <p class="text-neutral-300 max-w-2xl leading-relaxed text-lg">Mas de 17 publicaciones en revistas indexadas internacionales, libros y capitulos que abordan violencia de genero, femicidio, memoria y politicas publicas.</p>
+    </div>
+  </section>
+
+  <!-- Filters & View Toggle -->
+  <section class="border-b border-neutral-200 bg-white/80 backdrop-blur-md sticky top-0 z-10">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex flex-wrap gap-2" id="type-filters">
+        <button data-filter="all" class="filter-btn active px-4 py-1.5 text-sm rounded-full border border-neutral-200 font-medium transition-all duration-300">Todos</button>
+        <button data-filter="article" class="filter-btn px-4 py-1.5 text-sm rounded-full border border-neutral-200 font-medium transition-all duration-300">Articulos</button>
+        <button data-filter="book" class="filter-btn px-4 py-1.5 text-sm rounded-full border border-neutral-200 font-medium transition-all duration-300">Libros</button>
+        <button data-filter="chapter" class="filter-btn px-4 py-1.5 text-sm rounded-full border border-neutral-200 font-medium transition-all duration-300">Capitulos</button>
+      </div>
+      <div class="flex gap-2" id="view-toggle">
+        <button data-view="thematic" class="view-btn active px-4 py-1.5 text-sm rounded-full border border-neutral-200 font-medium transition-all duration-300">Tematico</button>
+        <button data-view="chronological" class="view-btn px-4 py-1.5 text-sm rounded-full border border-neutral-200 font-medium transition-all duration-300">Cronologico</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Thematic View -->
+  <div id="view-thematic" class="max-w-6xl mx-auto px-4 md:px-8 py-24 md:py-32">
+    {Object.entries(themes).map(([key, theme], idx) => {
+      const pubs = sorted.filter(p => p.theme === key);
+      if (pubs.length === 0) return null;
+      return (
+        <>
+          {idx > 0 && <div class="h-px bg-gradient-to-r from-transparent via-neutral-300 to-transparent mb-16"></div>}
+          <div class="mb-16 last:mb-0 theme-group" data-theme={key}>
+            <div class="reveal">
+              <div class="section-divider mb-6"></div>
+              <h2 class="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-3">{theme.title}</h2>
+              <p class="text-neutral-500 mb-10 max-w-2xl">{theme.intro}</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6 stagger-children">
+              {pubs.map(pub => (
+                <div class="pub-card card-hover h-full" data-type={pub.type}>
+                  <PublicationCard
+                    title={pub.title}
+                    authors={pub.authors}
+                    year={pub.year}
+                    type={pub.type}
+                    journal={pub.journal}
+                    publisher={pub.publisher}
+                    volume={pub.volume}
+                    pages={pub.pages}
+                    doi={pub.doi}
+                    isbn={pub.isbn}
+                    tags={pub.tags}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
+      );
+    })}
+  </div>
+
+  <!-- Chronological View (hidden by default) -->
+  <div id="view-chronological" class="max-w-6xl mx-auto px-4 md:px-8 py-24 md:py-32 hidden">
+    {(() => {
+      const years = [...new Set(sorted.map(p => p.year))].sort((a, b) => b - a);
+      return years.map((year, idx) => {
+        const pubs = sorted.filter(p => p.year === year);
+        return (
+          <>
+            {idx > 0 && <div class="h-px bg-gradient-to-r from-transparent via-neutral-300 to-transparent mb-12"></div>}
+            <div class="mb-12 last:mb-0 year-group">
+              <div class="reveal">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-neutral-900 mb-8 flex items-center gap-4">
+                  <span class="w-12 h-1 bg-gradient-to-r from-accent-500 to-primary-500 inline-block rounded-full"></span>
+                  <span class="font-serif">{year}</span>
+                </h2>
+              </div>
+              <div class="grid md:grid-cols-2 gap-6 stagger-children">
+                {pubs.map(pub => (
+                  <div class="pub-card card-hover h-full" data-type={pub.type}>
+                    <PublicationCard
+                      title={pub.title}
+                      authors={pub.authors}
+                      year={pub.year}
+                      type={pub.type}
+                      journal={pub.journal}
+                      publisher={pub.publisher}
+                      volume={pub.volume}
+                      pages={pub.pages}
+                      doi={pub.doi}
+                      isbn={pub.isbn}
+                      url={pub.url}
+                      tags={pub.tags}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </>
+        );
+      });
+    })()}
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+      const viewBtns = document.querySelectorAll<HTMLButtonElement>('.view-btn');
+      const thematicView = document.getElementById('view-thematic')!;
+      const chronoView = document.getElementById('view-chronological')!;
+
+      let activeFilter = 'all';
+
+      function applyFilter() {
+        document.querySelectorAll<HTMLElement>('.pub-card').forEach(card => {
+          if (activeFilter === 'all' || card.dataset.type === activeFilter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        // Hide empty theme/year groups
+        document.querySelectorAll<HTMLElement>('.theme-group, .year-group').forEach(group => {
+          const visible = group.querySelectorAll<HTMLElement>('.pub-card:not([style*="display: none"])');
+          group.style.display = visible.length > 0 ? '' : 'none';
+        });
+      }
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeFilter = btn.dataset.filter || 'all';
+          applyFilter();
+        });
+      });
+
+      viewBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          viewBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const view = btn.dataset.view;
+          if (view === 'thematic') {
+            thematicView.classList.remove('hidden');
+            chronoView.classList.add('hidden');
+          } else {
+            thematicView.classList.add('hidden');
+            chronoView.classList.remove('hidden');
+          }
+          applyFilter();
+        });
+      });
+    });
+  </script>
+
+  <style>
+    .filter-btn.active,
+    .view-btn.active {
+      background-color: var(--color-primary-500, #1E3A5F);
+      color: white;
+      border-color: var(--color-primary-500, #1E3A5F);
+    }
+  </style>
+</BaseLayout>

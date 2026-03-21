@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import education from '../data/education.json';
+
+const experience = [
+  {
+    period: '2025 - presente',
+    role: 'Investigador Joven',
+    institution: 'CEDIT - Nucleo Milenio',
+    description: 'Investigacion en el Centro de Estudios de Conflicto y Cohesion Social, financiado por ANID.',
+  },
+  {
+    period: '2014 - presente',
+    role: 'Socio fundador y Director',
+    institution: 'Centro Humain Ltda',
+    description: 'Consultoria, capacitacion e investigacion en genero, violencia y politicas publicas.',
+  },
+  {
+    period: '2013 - 2019',
+    role: 'Director',
+    institution: 'JPM Capacitacion',
+    description: 'Empresa de capacitacion profesional especializada en genero, violencia y atencion a victimas.',
+  },
+  {
+    period: '2012 - 2018',
+    role: 'Coordinador Nacional de Casas de Acogida',
+    institution: 'SernamEG (Servicio Nacional de la Mujer y la Equidad de Genero)',
+    description: 'Coordinacion a nivel nacional de las casas de acogida para mujeres victimas de violencia de genero. Seis anos de trabajo directo en politica publica de proteccion.',
+  },
+  {
+    period: '2010',
+    role: 'Practicante profesional',
+    institution: 'ONEMI (Oficina Nacional de Emergencia)',
+    description: 'Practica profesional en gestion de emergencias y atencion psicosocial.',
+  },
+  {
+    period: '2010',
+    role: 'Voluntario post-terremoto',
+    institution: 'FECh (Federacion de Estudiantes de Chile)',
+    description: 'Trabajo voluntario de intervencion psicosocial en comunidades afectadas por el terremoto del 27 de febrero de 2010.',
+  },
+];
+
+const bio = 'Juan Paulo Marchant Espinoza es psicologo de la Universidad de Chile, Magister en Estudios de Genero y Cultura con mencion en Humanidades por la misma universidad, y Doctor en Politicas Publicas por la Universidad Mayor, con especializacion en femicidios y violencia de genero. Con mas de 15 anos de trayectoria, ha combinado la investigacion academica con la practica profesional en politicas publicas, destacandose por su trabajo como Coordinador Nacional de Casas de Acogida en SernamEG entre 2012 y 2018. Es autor de mas de 17 publicaciones academicas, incluyendo dos libros, y actualmente ejerce docencia en tres universidades chilenas. Su trabajo busca transformar la evidencia academica en herramientas concretas para la proteccion de vidas.';
+---
+
+<BaseLayout
+  title="Trayectoria | Dr. Juan Paulo Marchant Espinoza"
+  description="Trayectoria academica y profesional del Dr. Juan Paulo Marchant Espinoza. Formacion, experiencia laboral y recorrido en investigacion y politicas publicas."
+>
+  <!-- Hero -->
+  <section class="relative bg-primary-900 text-white noise overflow-hidden">
+    <div class="gradient-blur w-80 h-80 bg-accent-500 -top-24 -right-24"></div>
+    <div class="gradient-blur w-96 h-96 bg-primary-300 -bottom-40 -left-40"></div>
+
+    <div class="relative max-w-6xl mx-auto px-4 md:px-8 py-24 md:py-32">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 mb-8">
+        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+        <span class="text-sm text-neutral-300">Trayectoria</span>
+      </div>
+      <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6">Formacion y experiencia</h1>
+      <p class="text-neutral-300 max-w-2xl leading-relaxed text-lg">Un recorrido que vincula la formacion academica de excelencia con el compromiso profesional por la justicia social y la proteccion de derechos.</p>
+    </div>
+  </section>
+
+  <!-- Bio -->
+  <section class="py-24 md:py-32">
+    <div class="max-w-6xl mx-auto px-4 md:px-8">
+      <div class="max-w-3xl reveal">
+        <div class="section-divider mb-6"></div>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-8">Semblanza</h2>
+        <p class="text-neutral-600 leading-relaxed text-lg">{bio}</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="h-px bg-gradient-to-r from-transparent via-neutral-300 to-transparent"></div>
+
+  <!-- Education Timeline -->
+  <section class="bg-neutral-100 border-y border-neutral-200 py-24 md:py-32">
+    <div class="max-w-6xl mx-auto px-4 md:px-8">
+      <div class="reveal">
+        <div class="section-divider mb-6"></div>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-3">Formacion academica</h2>
+        <p class="text-neutral-500 mb-12 max-w-2xl">Formacion continua en la Universidad de Chile y la Universidad Mayor.</p>
+      </div>
+
+      <div class="relative max-w-3xl">
+        <!-- Gradient vertical line -->
+        <div class="absolute left-[17px] top-2 bottom-2 w-0.5 bg-gradient-to-b from-primary-500 via-primary-300 to-neutral-300"></div>
+
+        <div class="flex flex-col gap-8 stagger-children">
+          {education.map(item => (
+            <div class="relative pl-12 group">
+              <!-- Larger dot with ring -->
+              <div class="absolute left-[8px] top-2 w-[18px] h-[18px] rounded-full bg-primary-500 border-[3px] border-white ring-2 ring-primary-200 transition-all duration-300 group-hover:ring-primary-400 group-hover:scale-110"></div>
+              <div class="card-hover bg-white border border-neutral-200 rounded-2xl p-6">
+                <div class="flex flex-wrap items-center gap-3 mb-1">
+                  <span class="font-serif text-lg text-primary-500 font-bold">{item.year}</span>
+                  <h3 class="font-semibold text-neutral-900">{item.degree}</h3>
+                </div>
+                {item.detail && (
+                  <p class="text-sm text-neutral-600 mb-1">{item.detail}</p>
+                )}
+                <p class="text-sm text-neutral-500">{item.institution}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="h-px bg-gradient-to-r from-transparent via-neutral-300 to-transparent"></div>
+
+  <!-- Professional Experience Timeline -->
+  <section class="py-24 md:py-32">
+    <div class="max-w-6xl mx-auto px-4 md:px-8">
+      <div class="reveal">
+        <div class="section-divider mb-6"></div>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-3">Experiencia profesional</h2>
+        <p class="text-neutral-500 mb-12 max-w-2xl">Trayectoria que combina la politica publica, la consultoria y el emprendimiento academico.</p>
+      </div>
+
+      <div class="relative max-w-3xl">
+        <!-- Gradient vertical line -->
+        <div class="absolute left-[17px] top-2 bottom-2 w-0.5 bg-gradient-to-b from-accent-500 via-accent-600 to-neutral-300"></div>
+
+        <div class="flex flex-col gap-8 stagger-children">
+          {experience.map(item => (
+            <div class="relative pl-12 group">
+              <!-- Larger dot with ring -->
+              <div class="absolute left-[8px] top-2 w-[18px] h-[18px] rounded-full bg-accent-500 border-[3px] border-white ring-2 ring-accent-500/20 transition-all duration-300 group-hover:ring-accent-500/40 group-hover:scale-110"></div>
+              <div class="card-hover bg-white border border-neutral-200 rounded-2xl p-6">
+                <span class="font-mono text-xs text-neutral-400">{item.period}</span>
+                <h3 class="font-semibold text-neutral-900 mt-1">{item.role}</h3>
+                <p class="text-sm text-primary-500 font-medium">{item.institution}</p>
+                <p class="text-sm text-neutral-600 mt-2 leading-relaxed">{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

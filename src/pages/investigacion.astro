@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const researchLines = [
+  {
+    title: 'Femicidio y territorio',
+    description: 'Analisis espacial y territorial de los femicidios en Chile, evaluando la capacidad del Estado para prevenir la violencia letal contra las mujeres. Incluye el estudio de medidas cautelares, casas de acogida y dispositivos de proteccion.',
+  },
+  {
+    title: 'Genero, violencia y reparacion',
+    description: 'Investigacion sobre los procesos de reparacion psicosocial en victimas de violencia de genero, con enfasis en modelos de intervencion, masculinidades y experiencias comparadas en America Latina.',
+  },
+  {
+    title: 'Memoria, represion y poder',
+    description: 'Estudio de las consecuencias psicosociales de la dictadura militar en Chile, la represion del lenguaje, las formas de violencia institucional y el analisis del poder desde perspectivas foucaultianas.',
+  },
+  {
+    title: 'Desastres y trauma psicosocial',
+    description: 'Investigacion sobre el impacto psicosocial de desastres naturales, con enfasis en el desplazamiento forzado y los procesos de reconstruccion comunitaria post-catastrofe.',
+  },
+];
+
+const currentProjects = [
+  {
+    title: 'CEDIT - Nucleo Milenio',
+    role: 'Investigador Joven',
+    funder: 'ANID - Iniciativa Cientifica Milenio',
+    period: '2025 - presente',
+    description: 'Centro de Estudios de Conflicto y Cohesion Social. Investigacion interdisciplinaria sobre las dinamicas de conflicto y convivencia en Chile.',
+    active: true,
+  },
+  {
+    title: 'Nucleo Milenio Sociomedicina',
+    role: 'Investigador asociado',
+    funder: 'ANID - Iniciativa Cientifica Milenio',
+    period: '2022 - 2023',
+    description: 'Estudio de las intersecciones entre salud, sociedad y politicas publicas, con enfasis en las dimensiones sociales de la medicina y la atencion en salud.',
+    active: false,
+  },
+  {
+    title: 'Proyecto Fondecyt',
+    role: 'Investigador',
+    funder: 'ANID - Fondecyt',
+    period: '2022 - 2023',
+    description: 'Investigacion financiada por el Fondo Nacional de Desarrollo Cientifico y Tecnologico sobre femicidio, medidas cautelares y politicas publicas en Chile.',
+    active: false,
+  },
+];
+---
+
+<BaseLayout
+  title="Investigacion | Dr. Juan Paulo Marchant Espinoza"
+  description="Lineas de investigacion y proyectos del Dr. Juan Paulo Marchant Espinoza en femicidio, violencia de genero y politicas publicas."
+>
+  <!-- Hero -->
+  <section class="relative bg-primary-900 text-white noise overflow-hidden">
+    <div class="gradient-blur w-80 h-80 bg-accent-500 -top-24 -right-24"></div>
+    <div class="gradient-blur w-96 h-96 bg-primary-300 -bottom-40 -left-40"></div>
+
+    <div class="relative max-w-6xl mx-auto px-4 md:px-8 py-24 md:py-32">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 mb-8">
+        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+        <span class="text-sm text-neutral-300">Investigacion</span>
+      </div>
+      <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6">Lineas de investigacion y proyectos</h1>
+      <p class="text-neutral-300 max-w-2xl leading-relaxed text-lg">Mas de 15 anos vinculando la produccion academica con la transformacion de politicas publicas en genero, violencia y derechos humanos.</p>
+    </div>
+  </section>
+
+  <!-- Research Lines -->
+  <section class="py-24 md:py-32">
+    <div class="max-w-6xl mx-auto px-4 md:px-8">
+      <div class="reveal">
+        <div class="section-divider mb-6"></div>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-3">Lineas de investigacion</h2>
+        <p class="text-neutral-500 mb-12 max-w-2xl">Areas tematicas que articulan la produccion academica e investigativa.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 stagger-children">
+        {researchLines.map((line, i) => (
+          <div class="card-hover bg-white border border-neutral-200 rounded-2xl overflow-hidden">
+            <div class="h-1.5 bg-gradient-to-r from-primary-500 to-primary-700"></div>
+            <div class="p-6 md:p-8">
+              <div class="flex items-start gap-4">
+                <span class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-50 text-primary-500 flex items-center justify-center text-lg font-serif font-bold">{i + 1}</span>
+                <div>
+                  <h3 class="font-semibold text-lg text-neutral-900 mb-2">{line.title}</h3>
+                  <p class="text-sm text-neutral-600 leading-relaxed">{line.description}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="h-px bg-gradient-to-r from-transparent via-neutral-300 to-transparent"></div>
+
+  <!-- Projects -->
+  <section class="bg-neutral-100 border-y border-neutral-200 py-24 md:py-32">
+    <div class="max-w-6xl mx-auto px-4 md:px-8">
+      <div class="reveal">
+        <div class="section-divider mb-6"></div>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-3">Proyectos de investigacion</h2>
+        <p class="text-neutral-500 mb-12 max-w-2xl">Proyectos financiados y colaboraciones institucionales de investigacion.</p>
+      </div>
+
+      <div class="grid gap-6 stagger-children">
+        {currentProjects.map(project => (
+          <div class="card-hover bg-white border border-neutral-200 rounded-2xl overflow-hidden">
+            <div class={`h-1.5 ${project.active ? 'bg-gradient-to-r from-accent-500 to-primary-500' : 'bg-gradient-to-r from-neutral-300 to-neutral-400'}`}></div>
+            <div class="p-6 md:p-8">
+              <div class="flex flex-wrap items-center gap-3 mb-3">
+                <h3 class="font-semibold text-lg text-neutral-900">{project.title}</h3>
+                {project.active ? (
+                  <span class="text-xs px-2.5 py-0.5 rounded-full bg-green-50 text-green-700 font-medium border border-green-200">Activo</span>
+                ) : (
+                  <span class="text-xs px-2.5 py-0.5 rounded-full bg-neutral-100 text-neutral-500 font-medium border border-neutral-200">Finalizado</span>
+                )}
+              </div>
+              <p class="text-sm text-neutral-600 leading-relaxed mb-4">{project.description}</p>
+              <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-neutral-500">
+                <span><span class="font-medium text-neutral-700">Rol:</span> {project.role}</span>
+                <span><span class="font-medium text-neutral-700">Financiamiento:</span> {project.funder}</span>
+                <span class="font-mono text-xs text-neutral-400">{project.period}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="h-px bg-gradient-to-r from-transparent via-neutral-300 to-transparent"></div>
+
+  <!-- CTA -->
+  <section class="relative py-24 md:py-32 overflow-hidden">
+    <div class="gradient-blur w-64 h-64 bg-primary-300 top-0 right-0"></div>
+    <div class="relative max-w-6xl mx-auto px-4 md:px-8 text-center">
+      <div class="reveal">
+        <div class="section-divider mb-6 mx-auto"></div>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-4">Colaboracion academica</h2>
+        <p class="text-neutral-500 max-w-xl mx-auto mb-10">Abierto a colaboraciones de investigacion, proyectos interdisciplinarios y redes academicas internacionales.</p>
+        <a href="/contacto" class="group inline-flex items-center gap-2 px-8 py-3 bg-primary-500 text-white font-semibold rounded-lg hover:bg-primary-700 transition-all duration-300 no-underline">
+          Proponer colaboracion
+          <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
