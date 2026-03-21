@@ -3,12 +3,20 @@
     "id": "femicide-development-2025",
     "type": "article",
     "title": "Femicide, Development, and State Capacity in Chile",
-    "authors": ["Cazzuffi, C.", "Marchant, J. P.", "Arensburg, S."],
+    "authors": [
+      "Cazzuffi, C.",
+      "Marchant, J. P.",
+      "Arensburg, S."
+    ],
     "year": 2025,
     "journal": "Applied Spatial Analysis and Policy",
     "doi": "10.1007/s12061-025-09783-y",
     "url": "https://link.springer.com/article/10.1007/s12061-025-09783-y",
-    "tags": ["femicidio", "politicas-publicas", "territorio"],
+    "tags": [
+      "femicidio",
+      "politicas-publicas",
+      "territorio"
+    ],
     "theme": "femicidio-territorio",
     "featured": true
   },
@@ -16,206 +24,355 @@
     "id": "medidas-cautelares-2024",
     "type": "article",
     "title": "Caracterizacion y analisis de las medidas cautelares de los casos de femicidios en Chile (2008-2022)",
-    "authors": ["Marchant, J. P.", "Rocha-Jimenez, T.", "Cordova Sanchez, C. A."],
+    "authors": [
+      "Marchant, J. P.",
+      "Rocha-Jimenez, T.",
+      "Cordova Sanchez, C. A."
+    ],
     "year": 2024,
     "journal": "Onati Socio-Legal Series",
     "volume": "14(6)",
     "pages": "1768-1791",
     "url": "https://opo.iisj.net/index.php/osls/article/view/2100",
-    "tags": ["femicidio", "cautelares", "chile"],
+    "tags": [
+      "femicidio",
+      "cautelares",
+      "chile"
+    ],
     "theme": "femicidio-territorio",
-    "featured": true
+    "featured": true,
+    "abstract": "A pesar de que Chile tiene una de las tasas de femicidios más bajas de Latinoamérica (0,5 por cada 100.000 habitantes), se sabe poco sobre qué determina decretar o no una medida cautelar para prevenir un femicidio. En el presente artículo se describen y analizan las medidas cautelares decretadas en los casos de femicidios ocurridos entre los años 2008 y 2022 en Chile.",
+    "cited_by_count": 2
+  },
+  {
+    "id": "cesd-escala-depresion-2023",
+    "type": "article",
+    "title": "Traduccion, validacion y adaptacion del espanol al Kreyol-creole haitiano de la Escala de Depresion del Centro de Estudios Epidemiologicos (CESD-R-20)",
+    "authors": [
+      "Marchant, J. P.",
+      "et al."
+    ],
+    "year": 2023,
+    "journal": "Terapia Psicologica",
+    "doi": "10.4067/s0718-48082023000200177",
+    "url": "http://www.scielo.cl/pdf/terpsicol/v41n2/0718-4808-terpsicol-41-02-0177.pdf",
+    "abstract": "A pesar de la importante presencia de la poblacion haitiana en paises de America Latina, existen pocos estudios que evaluen la salud mental en esta poblacion. Este estudio presenta la traduccion, validacion y adaptacion de la Escala de Depresion del Centro de Estudios Epidemiologicos (CESD-R-20) del espanol al Kreyol-creole haitiano.",
+    "cited_by_count": 3,
+    "tags": [
+      "depresion",
+      "migracion",
+      "haitiano",
+      "validacion"
+    ],
+    "theme": "genero-reparacion"
   },
   {
     "id": "denunciar-violencia-2022",
     "type": "article",
     "title": "Denunciar violencia de pareja en Chile: Aspectos a considerar desde el Aparato Estatal",
-    "authors": ["Marchant, J. P."],
+    "authors": [
+      "Marchant, J. P."
+    ],
     "year": 2022,
     "journal": "Sortuz: Onati Journal of Emergent Socio-Legal Studies",
     "volume": "12(1)",
     "pages": "90-102",
     "url": "https://opo.iisj.net/index.php/sortuz/article/view/1559",
-    "tags": ["violencia-de-pareja", "estado", "denuncia"],
+    "tags": [
+      "violencia-de-pareja",
+      "estado",
+      "denuncia"
+    ],
     "theme": "femicidio-territorio",
-    "featured": true
+    "featured": true,
+    "abstract": "El presente ensayo analiza el actuar del Estado Chileno para facilitar las condiciones necesarias para que las personas ejerzan su derecho a denunciar actos de violencia en el contexto de pareja, cuando son las propias instituciones del Estado las que dificultan y/o impiden este ejercicio.",
+    "cited_by_count": 2
   },
   {
     "id": "nuevas-masculinidades-2014",
     "type": "article",
     "title": "Nuevas masculinidades en desplazamiento: construcciones sociales y culturales del significado de ser hombre. Una mirada desde Chile y Colombia",
-    "authors": ["Marchant, J. P.", "Chavez Plazas, Y."],
+    "authors": [
+      "Marchant, J. P.",
+      "Chavez Plazas, Y."
+    ],
     "year": 2014,
     "journal": "Tabula Rasa: revista de humanidades",
     "volume": "21",
     "pages": "287-303",
     "url": "https://www.redalyc.org/articulo.oa?id=39633819012",
-    "tags": ["masculinidades", "desplazamiento", "genero"],
-    "theme": "genero-reparacion"
+    "tags": [
+      "masculinidades",
+      "desplazamiento",
+      "genero"
+    ],
+    "theme": "genero-reparacion",
+    "abstract": "La experiencia del desplazamiento constituye un evento estresor que vulnera significativamente a quienes lo padecen, bien sea por desastres naturales o por acción de grupos armados. Este artículo analiza las construcciones sociales y culturales del significado de ser hombre desde la experiencia del desplazamiento en Chile y Colombia.",
+    "cited_by_count": 2
   },
   {
     "id": "incesto-memoria-2013",
     "type": "article",
     "title": "Incesto, memoria y legitima defensa con resultado de muerte: Una mirada desde la pelicula Volver y el genero",
-    "authors": ["Marchant, J. P."],
+    "authors": [
+      "Marchant, J. P."
+    ],
     "year": 2013,
     "journal": "Revista de Ciencias Sociales, Universidad de Valparaiso",
     "volume": "62",
     "pages": "49-74",
-    "tags": ["genero", "violencia", "cine"],
-    "theme": "genero-reparacion"
+    "tags": [
+      "genero",
+      "violencia",
+      "cine"
+    ],
+    "theme": "genero-reparacion",
+    "abstract": "El presente trabajo pretende abordar los conceptos de incesto, cripta traumática y legítima defensa con resultado de muerte para describir la relación que se forja entre ellos, desde una perspectiva de género, analizando la película 'Volver' de Pedro Almodóvar.",
+    "cited_by_count": 0,
+    "url": "https://revistas.uv.cl/index.php/rcs/article/download/153/136"
   },
   {
     "id": "fetos-detenidos-2012",
     "type": "article",
     "title": "Fetos Detenidos Desaparecidos y Olvidados: Chile 1973",
-    "authors": ["Marchant, J. P."],
+    "authors": [
+      "Marchant, J. P."
+    ],
     "year": 2012,
     "journal": "Actualidad. Revista de Ciencias Sociales, Universidad de Valparaiso",
     "volume": "60",
     "pages": "67-102",
-    "tags": ["represion", "dictadura", "memoria"],
+    "tags": [
+      "represion",
+      "dictadura",
+      "memoria"
+    ],
     "theme": "memoria-represion"
   },
   {
     "id": "hinzpeter-foucault-2012",
     "type": "article",
     "title": "Una aproximacion a Rodrigo Hinzpeter desde los postulados de Michel Foucault",
-    "authors": ["Marchant, J. P."],
+    "authors": [
+      "Marchant, J. P."
+    ],
     "year": 2012,
     "journal": "Revista Electronica de Psicologia Politica",
     "volume": "27",
     "pages": "25-45",
-    "tags": ["foucault", "poder", "politica"],
+    "tags": [
+      "foucault",
+      "poder",
+      "politica"
+    ],
     "theme": "memoria-represion"
   },
   {
     "id": "reparacion-psicosocial-2012",
     "type": "article",
     "title": "Reparacion psicosocial en mujeres que han vivido situaciones de violencia domestica: Un estudio comparativo entre Asuncion y Santiago de Chile",
-    "authors": ["Marchant, J. P.", "Navarro, A.", "Soto, E."],
+    "authors": [
+      "Marchant, J. P.",
+      "Navarro, A.",
+      "Soto, E."
+    ],
     "year": 2012,
     "journal": "Revista diaLogos",
     "volume": "3(2)",
     "pages": "95-107",
-    "tags": ["reparacion", "violencia-domestica", "comparado"],
-    "theme": "genero-reparacion"
-  },
-  {
-    "id": "genero-carceles-2011",
-    "type": "article",
-    "title": "Genero y carceles en Latinoamerica",
-    "authors": ["Flores, P.", "Marchant, J. P.", "Soto, E."],
-    "year": 2011,
-    "journal": "Revista de Ciencias Sociales, Universidad de Valparaiso",
-    "volume": "56",
-    "pages": "13-48",
-    "tags": ["genero", "carceles", "latinoamerica"],
-    "theme": "genero-reparacion"
-  },
-  {
-    "id": "represion-lenguaje-2010",
-    "type": "article",
-    "title": "Companero, compa', com': Represion, lenguaje y Dictadura Militar",
-    "authors": ["Marchant, J. P."],
-    "year": 2010,
-    "journal": "Revista Electronica de Psicologia Politica",
-    "volume": "22",
-    "pages": "27-48",
-    "tags": ["represion", "lenguaje", "dictadura"],
-    "theme": "memoria-represion"
-  },
-  {
-    "id": "dictadura-dano-2009",
-    "type": "article",
-    "title": "La dictadura y el dano: Soy un nuevo producto de la violencia de Estado?",
-    "authors": ["Marchant, J. P."],
-    "year": 2009,
-    "journal": "Revista Electronica de Psicologia Politica",
-    "volume": "21",
-    "pages": "131-146",
-    "tags": ["dictadura", "violencia-estado", "dano"],
-    "theme": "memoria-represion"
-  },
-  {
-    "id": "agresion-sexual-2009",
-    "type": "article",
-    "title": "Agresion sexual y reparacion: la importancia del vinculo en la terapia",
-    "authors": ["Marchant, J. P.", "Soto, E."],
-    "year": 2009,
-    "journal": "Revista Castalia",
-    "volume": "15",
-    "pages": "55-70",
-    "tags": ["agresion-sexual", "reparacion", "terapia"],
-    "theme": "genero-reparacion"
-  },
-  {
-    "id": "escuelas-vulnerables-2009",
-    "type": "article",
-    "title": "Experiencias de Intervencion institucional en Escuelas Vulnerables en Latinoamerica",
-    "authors": ["Marchant, J. P.", "Salin, A.", "Williams, J."],
-    "year": 2009,
-    "journal": "REICE. Revista Iberoamericana sobre Calidad, Eficacia y Cambio en la Educacion",
-    "volume": "7(3)",
-    "tags": ["escuelas", "vulnerabilidad", "intervencion"],
-    "theme": "genero-reparacion"
-  },
-  {
-    "id": "reaccions-maternes-2009",
-    "type": "article",
-    "title": "Reaccions maternes inusuals enfront del incest patern-filial. Una mirada analogica des de l'analisi de la pel-licula 'Volver'",
-    "authors": ["Marchant, J. P.", "Soto, E."],
-    "year": 2009,
-    "journal": "Revista d'Estudis de la Violencia",
-    "volume": "8",
-    "tags": ["incesto", "maternidad", "cine"],
-    "theme": "genero-reparacion"
-  },
-  {
-    "id": "peritajes-psicologicos-2008",
-    "type": "article",
-    "title": "Peritajes Psicologicos en Delitos Sexuales",
-    "authors": ["Marchant, J. P."],
-    "year": 2008,
-    "journal": "Perfil Criminal. Revista Ciencia Policial",
-    "volume": "91",
-    "pages": "47-58",
-    "tags": ["peritajes", "delitos-sexuales", "forense"],
+    "tags": [
+      "reparacion",
+      "violencia-domestica",
+      "comparado"
+    ],
     "theme": "genero-reparacion"
   },
   {
     "id": "iglesia-genero-poder-2012",
     "type": "book",
     "title": "Iglesia, Genero y Poder. El Caso Karadima",
-    "authors": ["Marchant, J. P."],
+    "authors": [
+      "Marchant, J. P."
+    ],
     "year": 2012,
     "publisher": "Editorial Academica Espanola (EAE), Saarbrucken, Alemania",
     "isbn": "9783848478675",
     "url": "https://www.amazon.com/-/es/Iglesia-G%C3%A9nero-Poder-Karadima-Spanish/dp/3848478676",
-    "tags": ["iglesia", "poder", "karadima", "genero"],
+    "tags": [
+      "iglesia",
+      "poder",
+      "karadima",
+      "genero"
+    ],
     "theme": "memoria-represion",
     "featured": true
-  },
-  {
-    "id": "desplazamiento-chaiten-2011",
-    "type": "book",
-    "title": "Desplazamiento de Chaiten desde una perspectiva psicosocial. Que sucedio con su poblacion despues del desastre?",
-    "authors": ["Marchant, J. P."],
-    "year": 2011,
-    "publisher": "Editorial Academica Espanola (EAE), Saarbrucken, Alemania",
-    "isbn": "9783846560334",
-    "tags": ["desplazamiento", "chaiten", "desastre", "psicosocial"],
-    "theme": "desastres-trauma"
   },
   {
     "id": "fill-no-franco-2012",
     "type": "chapter",
     "title": "El meu fill no es el Franco. La repressio sociocultural a Catalunya durant la Dictadura i el rol de les mares",
-    "authors": ["Marchant, J. P."],
+    "authors": [
+      "Marchant, J. P."
+    ],
     "year": 2012,
     "bookTitle": "(Des)Encuentro de culturas ibericas: haciendo hablar a la Diversidad",
     "publisher": "LOM Ediciones, Santiago",
-    "tags": ["represion", "cataluna", "dictadura", "madres"],
+    "tags": [
+      "represion",
+      "cataluna",
+      "dictadura",
+      "madres"
+    ],
     "theme": "memoria-represion"
+  },
+  {
+    "id": "genero-carceles-2011",
+    "type": "article",
+    "title": "Genero y carceles en Latinoamerica",
+    "authors": [
+      "Flores, P.",
+      "Marchant, J. P.",
+      "Soto, E."
+    ],
+    "year": 2011,
+    "journal": "Revista de Ciencias Sociales, Universidad de Valparaiso",
+    "volume": "56",
+    "pages": "13-48",
+    "tags": [
+      "genero",
+      "carceles",
+      "latinoamerica"
+    ],
+    "theme": "genero-reparacion"
+  },
+  {
+    "id": "desplazamiento-chaiten-2011",
+    "type": "book",
+    "title": "Desplazamiento de Chaiten desde una perspectiva psicosocial. Que sucedio con su poblacion despues del desastre?",
+    "authors": [
+      "Marchant, J. P."
+    ],
+    "year": 2011,
+    "publisher": "Editorial Academica Espanola (EAE), Saarbrucken, Alemania",
+    "isbn": "9783846560334",
+    "tags": [
+      "desplazamiento",
+      "chaiten",
+      "desastre",
+      "psicosocial"
+    ],
+    "theme": "desastres-trauma"
+  },
+  {
+    "id": "represion-lenguaje-2010",
+    "type": "article",
+    "title": "Companero, compa', com': Represion, lenguaje y Dictadura Militar",
+    "authors": [
+      "Marchant, J. P."
+    ],
+    "year": 2010,
+    "journal": "Revista Electronica de Psicologia Politica",
+    "volume": "22",
+    "pages": "27-48",
+    "tags": [
+      "represion",
+      "lenguaje",
+      "dictadura"
+    ],
+    "theme": "memoria-represion"
+  },
+  {
+    "id": "dictadura-dano-2009",
+    "type": "article",
+    "title": "La dictadura y el dano: Soy un nuevo producto de la violencia de Estado?",
+    "authors": [
+      "Marchant, J. P."
+    ],
+    "year": 2009,
+    "journal": "Revista Electronica de Psicologia Politica",
+    "volume": "21",
+    "pages": "131-146",
+    "tags": [
+      "dictadura",
+      "violencia-estado",
+      "dano"
+    ],
+    "theme": "memoria-represion"
+  },
+  {
+    "id": "agresion-sexual-2009",
+    "type": "article",
+    "title": "Agresion sexual y reparacion: la importancia del vinculo en la terapia",
+    "authors": [
+      "Marchant, J. P.",
+      "Soto, E."
+    ],
+    "year": 2009,
+    "journal": "Revista Castalia",
+    "volume": "15",
+    "pages": "55-70",
+    "tags": [
+      "agresion-sexual",
+      "reparacion",
+      "terapia"
+    ],
+    "theme": "genero-reparacion",
+    "cited_by_count": 1
+  },
+  {
+    "id": "escuelas-vulnerables-2009",
+    "type": "article",
+    "title": "Experiencias de Intervencion institucional en Escuelas Vulnerables en Latinoamerica",
+    "authors": [
+      "Marchant, J. P.",
+      "Salin, A.",
+      "Williams, J."
+    ],
+    "year": 2009,
+    "journal": "REICE. Revista Iberoamericana sobre Calidad, Eficacia y Cambio en la Educacion",
+    "volume": "7(3)",
+    "tags": [
+      "escuelas",
+      "vulnerabilidad",
+      "intervencion"
+    ],
+    "theme": "genero-reparacion"
+  },
+  {
+    "id": "reaccions-maternes-2009",
+    "type": "article",
+    "title": "Reaccions maternes inusuals enfront del incest patern-filial. Una mirada analogica des de l'analisi de la pel-licula 'Volver'",
+    "authors": [
+      "Marchant, J. P.",
+      "Soto, E."
+    ],
+    "year": 2009,
+    "journal": "Revista d'Estudis de la Violencia",
+    "volume": "8",
+    "tags": [
+      "incesto",
+      "maternidad",
+      "cine"
+    ],
+    "theme": "genero-reparacion"
+  },
+  {
+    "id": "peritajes-psicologicos-2008",
+    "type": "article",
+    "title": "Peritajes Psicologicos en Delitos Sexuales",
+    "authors": [
+      "Marchant, J. P."
+    ],
+    "year": 2008,
+    "journal": "Perfil Criminal. Revista Ciencia Policial",
+    "volume": "91",
+    "pages": "47-58",
+    "tags": [
+      "peritajes",
+      "delitos-sexuales",
+      "forense"
+    ],
+    "theme": "genero-reparacion",
+    "cited_by_count": 0
   }
 ]

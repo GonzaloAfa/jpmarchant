@@ -1,7 +1,7 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PublicationCard from '../components/PublicationCard.astro';
-import publications from '../data/publications.json';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PublicationCard from '../../components/PublicationCard.astro';
+import publications from '../../data/publications.json';
 
 const themes: Record<string, { title: string; intro: string }> = {
   'femicidio-territorio': {
@@ -28,6 +28,7 @@ const sorted = [...publications].sort((a, b) => b.year - a.year);
 <BaseLayout
   title="Publicaciones | Dr. Juan Paulo Marchant Espinoza"
   description="Publicaciones academicas del Dr. Juan Paulo Marchant Espinoza: articulos, libros y capitulos sobre femicidio, violencia de genero y politicas publicas."
+  breadcrumbs={[{ name: 'Publicaciones', url: '/publicaciones' }]}
 >
   <!-- Hero -->
   <section class="relative bg-primary-900 text-white noise overflow-hidden">
@@ -79,6 +80,7 @@ const sorted = [...publications].sort((a, b) => b.year - a.year);
               {pubs.map(pub => (
                 <div class="pub-card card-hover h-full" data-type={pub.type}>
                   <PublicationCard
+                    id={pub.id}
                     title={pub.title}
                     authors={pub.authors}
                     year={pub.year}

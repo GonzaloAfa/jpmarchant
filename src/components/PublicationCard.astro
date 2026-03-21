@@ -1,5 +1,6 @@
 ---
 interface Props {
+  id?: string;
   title: string;
   authors: string[];
   year: number;
@@ -14,7 +15,8 @@ interface Props {
   tags?: string[];
 }
 
-const { title, authors, year, type, journal, publisher, volume, pages, doi, isbn, url, tags = [] } = Astro.props;
+const { id, title, authors, year, type, journal, publisher, volume, pages, doi, isbn, url, tags = [] } = Astro.props;
+const detailUrl = id ? `/publicaciones/${id}` : null;
 
 const typeLabel: Record<string, string> = {
   article: 'Articulo',
@@ -24,12 +26,22 @@ const typeLabel: Record<string, string> = {
   conference: 'Congreso',
 };
 
+// Gradient bars - using primary and accent palette
 const typeGradient: Record<string, string> = {
-  article: 'from-primary-500 to-primary-700',
-  book: 'from-accent-500 to-accent-700',
-  chapter: 'from-[#6366F1] to-[#4338CA]',
-  thesis: 'from-[#059669] to-[#047857]',
-  conference: 'from-[#D97706] to-[#B45309]',
+  article: 'from-primary-200 to-primary-300',
+  book: 'from-[#E8B4BC] to-[#D4838F]',
+  chapter: 'from-[#B5CCBE] to-[#8FB09A]',
+  thesis: 'from-primary-100 to-primary-200',
+  conference: 'from-[#D9C5B8] to-[#C4A893]',
+};
+
+// Pastel badges - derived from primary blue and accent burgundy
+const typeBadge: Record<string, string> = {
+  article: 'bg-primary-50 text-primary-700 border border-primary-200',
+  book: 'bg-[#FDF2F4] text-accent-700 border border-[#E8B4BC]',
+  chapter: 'bg-[#F0F5F1] text-[#2D5E3F] border border-[#B5CCBE]',
+  thesis: 'bg-primary-100 text-primary-700 border border-primary-200',
+  conference: 'bg-[#F8F3F0] text-[#6B4C3B] border border-[#D9C5B8]',
 };
 ---
 
@@ -39,13 +51,19 @@ const typeGradient: Record<string, string> = {
 
   <div class="p-6 flex flex-col gap-3 flex-1">
     <div class="flex items-center justify-between text-xs">
-      <span class={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gradient-to-r ${typeGradient[type] || 'from-neutral-300 to-neutral-400'} text-white font-medium text-[10px] uppercase tracking-wider`}>
+      <span class={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-medium text-[10px] uppercase tracking-wider ${typeBadge[type] || 'bg-neutral-100 text-neutral-600 border border-neutral-200'}`}>
         {typeLabel[type] || type}
       </span>
       <span class="text-neutral-400 font-mono text-sm">{year}</span>
     </div>
 
-    <h3 class="font-serif font-semibold text-base leading-snug text-neutral-900 group-hover:text-primary-500 transition-colors duration-300">{title}</h3>
+    {detailUrl ? (
+      <a href={detailUrl} class="no-underline">
+        <h3 class="font-serif font-semibold text-base leading-snug text-neutral-900 group-hover:text-primary-500 transition-colors duration-300">{title}</h3>
+      </a>
+    ) : (
+      <h3 class="font-serif font-semibold text-base leading-snug text-neutral-900 group-hover:text-primary-500 transition-colors duration-300">{title}</h3>
+    )}
 
     <p class="text-sm text-neutral-500">{authors.join(', ')}</p>
 

@@ -1,0 +1,288 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import publications from '../../data/publications.json';
+
+export function getStaticPaths() {
+  return publications.map(pub => ({
+    params: { id: pub.id },
+    props: { pub },
+  }));
+}
+
+const { pub } = Astro.props;
+
+const typeLabel: Record<string, string> = {
+  article: 'Articulo',
+  book: 'Libro',
+  chapter: 'Capitulo',
+};
+
+const themeLabel: Record<string, string> = {
+  'femicidio-territorio': 'Femicidio y territorio',
+  'genero-reparacion': 'Genero, violencia y reparacion',
+  'memoria-represion': 'Memoria, represion y poder',
+  'desastres-trauma': 'Desastres y trauma psicosocial',
+};
+
+const siteUrl = 'https://jpmarchant.cl';
+
+// Schema ScholarlyArticle / Book
+const schemaType = pub.type === 'book' ? 'Book' : 'ScholarlyArticle';
+const publicationSchema: Record<string, any> = {
+  "@context": "https://schema.org",
+  "@type": schemaType,
+  "headline": pub.title,
+  "name": pub.title,
+  "author": pub.authors.map((a: string) => ({
+    "@type": "Person",
+    "name": a,
+  })),
+  "datePublished": String(pub.year),
+  "inLanguage": "es",
+  "url": `${siteUrl}/publicaciones/${pub.id}`,
+};
+
+if (pub.journal) {
+  publicationSchema.isPartOf = {
+    "@type": "Periodical",
+    "name": pub.journal,
+  };
+}
+if (pub.doi) publicationSchema.sameAs = `https://doi.org/${pub.doi}`;
+if (pub.isbn) publicationSchema.isbn = pub.isbn;
+if (pub.publisher) publicationSchema.publisher = { "@type": "Organization", "name": pub.publisher };
+if (pub.tags) publicationSchema.about = pub.tags;
+
+// Parse volume and pages for citation meta
+const volMatch = pub.volume?.match(/^(\d+)/);
+const issueMatch = pub.volume?.match(/\((\d+)\)/);
+const pageStart = pub.pages?.split('-')[0]?.trim();
+const pageEnd = pub.pages?.split('-')[1]?.trim();
+---
+
+<BaseLayout
+  title={`${pub.title} | Dr. Juan Paulo Marchant Espinoza`}
+  description={`${pub.authors.join(', ')} (${pub.year}). ${pub.title}. ${pub.journal || pub.publisher || ''}`}
+  breadcrumbs={[
+    { name: 'Publicaciones', url: '/publicaciones' },
+    { name: pub.title.length > 60 ? pub.title.slice(0, 57) + '...' : pub.title, url: `/publicaciones/${pub.id}` }
+  ]}
+>
+  <!-- Highwire Press meta tags for Google Scholar -->
+  <Fragment slot="head">
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="relative bg-primary-900 text-white noise overflow-hidden">
+    <div class="gradient-blur w-80 h-80 bg-accent-500 -top-24 -right-24"></div>
+    <div class="gradient-blur w-96 h-96 bg-primary-300 -bottom-40 -left-40"></div>
+
+    <div class="relative max-w-4xl mx-auto px-4 md:px-8 py-24 md:py-32">
+      <div class="flex items-center gap-3 mb-6">
+        <a href="/publicaciones" class="text-neutral-400 hover:text-white no-underline transition-colors text-sm">
+          &larr; Publicaciones
+        </a>
+        <span class="text-neutral-600">/</span>
+        <span class={`inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-medium uppercase tracking-wider ${
+          pub.type === 'article' ? 'bg-primary-500/30 text-primary-200' :
+          pub.type === 'book' ? 'bg-accent-500/30 text-red-200' :
+          'bg-[#6366F1]/30 text-indigo-200'
+        }`}>
+          {typeLabel[pub.type] || pub.type}
+        </span>
+        <span class="font-mono text-sm text-neutral-400">{pub.year}</span>
+      </div>
+
+      <h1 class="font-serif text-3xl md:text-4xl font-bold leading-tight mb-6">{pub.title}</h1>
+
+      <p class="text-neutral-300 text-lg">{pub.authors.join(', ')}</p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-24 md:py-32">
+    <div class="max-w-4xl mx-auto px-4 md:px-8">
+      <div class="grid md:grid-cols-3 gap-12">
+        <!-- Main info -->
+        <div class="md:col-span-2 reveal">
+          {pub.abstract && (
+            <div class="mb-10">
+              <p class="text-xs text-neutral-400 uppercase tracking-wider font-medium mb-3">Abstract</p>
+              <p class="text-neutral-700 leading-relaxed font-serif">{pub.abstract}</p>
+            </div>
+          )}
+
+          {pub.cited_by_count !== undefined && pub.cited_by_count !== null && (
+            <div class="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 border border-primary-100">
+              <span class="font-bold text-primary-500">{pub.cited_by_count}</span>
+              <span class="text-sm text-primary-700">{pub.cited_by_count === 1 ? 'cita' : 'citas'} en OpenAlex</span>
+            </div>
+          )}
+
+          {pub.journal && (
+            <div class="mb-8">
+              <p class="text-xs text-neutral-400 uppercase tracking-wider font-medium mb-2">Publicado en</p>
+              <p class="font-serif text-xl text-neutral-900 italic">{pub.journal}</p>
+              {pub.volume && <p class="text-neutral-600 mt-1">Vol. {pub.volume}{pub.pages ? `, pp. ${pub.pages}` : ''}</p>}
+            </div>
+          )}
+
+          {pub.publisher && (
+            <div class="mb-8">
+              <p class="text-xs text-neutral-400 uppercase tracking-wider font-medium mb-2">Editorial</p>
+              <p class="text-neutral-900">{pub.publisher}</p>
+            </div>
+          )}
+
+          {pub.bookTitle && (
+            <div class="mb-8">
+              <p class="text-xs text-neutral-400 uppercase tracking-wider font-medium mb-2">En</p>
+              <p class="font-serif text-lg text-neutral-900 italic">{pub.bookTitle}</p>
+            </div>
+          )}
+
+          {pub.theme && (
+            <div class="mb-8">
+              <p class="text-xs text-neutral-400 uppercase tracking-wider font-medium mb-2">Linea de investigacion</p>
+              <a href="/investigacion" class="text-primary-500 hover:text-primary-700 no-underline font-medium transition-colors">
+                {themeLabel[pub.theme] || pub.theme}
+              </a>
+            </div>
+          )}
+
+          {pub.tags && pub.tags.length > 0 && (
+            <div class="mb-8">
+              <p class="text-xs text-neutral-400 uppercase tracking-wider font-medium mb-3">Temas</p>
+              <div class="flex flex-wrap gap-2">
+                {pub.tags.map((tag: string) => (
+                  <span class="text-sm px-3 py-1 rounded-full bg-neutral-100 text-neutral-600 border border-neutral-200">{tag}</span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <!-- Citation -->
+          <div class="mt-12 p-6 bg-neutral-100 rounded-2xl border border-neutral-200">
+            <p class="text-xs text-neutral-400 uppercase tracking-wider font-medium mb-3">Citar como (APA)</p>
+            <p class="text-sm text-neutral-700 leading-relaxed" id="citation-text">
+              {pub.authors.join(', ')} ({pub.year}). {pub.title}. {pub.journal ? <em>{pub.journal}</em> : ''}{pub.volume ? `, ${pub.volume}` : ''}{pub.pages ? `, pp. ${pub.pages}` : ''}{pub.publisher ? `. ${pub.publisher}` : ''}.{pub.doi ? ` https://doi.org/${pub.doi}` : ''}
+            </p>
+            <button
+              id="copy-citation"
+              class="mt-4 px-4 py-2 text-sm font-medium bg-primary-500 text-white rounded-lg hover:bg-primary-700 transition-all duration-300 cursor-pointer"
+            >
+              Copiar cita
+            </button>
+            <span id="copy-feedback" class="ml-3 text-sm text-green-600 font-medium hidden">Copiado</span>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="reveal-right">
+          <div class="sticky top-20 space-y-6">
+            {pub.url && (
+              <a
+                href={pub.url}
+                target="_blank"
+                rel="noopener"
+                class="group flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-primary-500 text-white font-semibold rounded-lg hover:bg-primary-700 transition-all duration-300 no-underline"
+              >
+                Ver publicacion
+                <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+              </a>
+            )}
+
+            {pub.doi && (
+              <a
+                href={`https://doi.org/${pub.doi}`}
+                target="_blank"
+                rel="noopener"
+                class="group flex items-center justify-center gap-2 w-full px-6 py-3.5 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:border-primary-500 hover:text-primary-500 transition-all duration-300 no-underline bg-white"
+              >
+                DOI
+                <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+              </a>
+            )}
+
+            <div class="bg-white rounded-2xl border border-neutral-200 p-5 space-y-4">
+              {pub.doi && (
+                <div>
+                  <p class="text-xs text-neutral-400 uppercase tracking-wider font-medium mb-1">DOI</p>
+                  <p class="font-mono text-xs text-neutral-600 break-all">{pub.doi}</p>
+                </div>
+              )}
+              {pub.isbn && (
+                <div>
+                  <p class="text-xs text-neutral-400 uppercase tracking-wider font-medium mb-1">ISBN</p>
+                  <p class="font-mono text-xs text-neutral-600">{pub.isbn}</p>
+                </div>
+              )}
+              <div>
+                <p class="text-xs text-neutral-400 uppercase tracking-wider font-medium mb-1">Ano</p>
+                <p class="font-mono text-sm text-neutral-900">{pub.year}</p>
+              </div>
+              <div>
+                <p class="text-xs text-neutral-400 uppercase tracking-wider font-medium mb-1">Tipo</p>
+                <p class="text-sm text-neutral-900">{typeLabel[pub.type] || pub.type}</p>
+              </div>
+            </div>
+
+            <a href="/publicaciones" class="group inline-flex items-center gap-2 text-sm text-primary-500 font-medium hover:text-primary-700 no-underline transition-colors">
+              <svg class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" /></svg>
+              Volver a publicaciones
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JSON-LD ScholarlyArticle -->
+  <script type="application/ld+json" set:html={JSON.stringify(publicationSchema)} />
+</BaseLayout>
+
+<!-- Highwire Press meta tags (injected after head via inline script) -->
+<meta name="citation_title" content={pub.title} />
+{pub.authors.map((author: string) => (
+  <meta name="citation_author" content={author} />
+))}
+<meta name="citation_publication_date" content={String(pub.year)} />
+{pub.journal && <meta name="citation_journal_title" content={pub.journal} />}
+{volMatch && <meta name="citation_volume" content={volMatch[1]} />}
+{issueMatch && <meta name="citation_issue" content={issueMatch[1]} />}
+{pageStart && <meta name="citation_firstpage" content={pageStart} />}
+{pageEnd && <meta name="citation_lastpage" content={pageEnd} />}
+{pub.doi && <meta name="citation_doi" content={pub.doi} />}
+{pub.isbn && <meta name="citation_isbn" content={pub.isbn} />}
+<meta name="citation_language" content="es" />
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('copy-citation');
+    const feedback = document.getElementById('copy-feedback');
+    const text = document.getElementById('citation-text');
+
+    if (btn && feedback && text) {
+      btn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(text.textContent || '');
+          feedback.classList.remove('hidden');
+          btn.textContent = 'Copiado';
+          setTimeout(() => {
+            feedback.classList.add('hidden');
+            btn.textContent = 'Copiar cita';
+          }, 2000);
+        } catch {
+          const range = document.createRange();
+          range.selectNode(text);
+          window.getSelection()?.removeAllRanges();
+          window.getSelection()?.addRange(range);
+          document.execCommand('copy');
+          window.getSelection()?.removeAllRanges();
+          feedback.classList.remove('hidden');
+          setTimeout(() => feedback.classList.add('hidden'), 2000);
+        }
+      });
+    }
+  });
+</script>

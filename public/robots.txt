@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jpmarchant.cl/sitemap-index.xml
+
+# Bloquear rutas sin valor SEO
+Disallow: /api/
+Disallow: /_vercel/

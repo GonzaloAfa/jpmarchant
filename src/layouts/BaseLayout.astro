@@ -9,15 +9,16 @@ interface Props {
   title: string;
   description: string;
   canonical?: string;
+  breadcrumbs?: Array<{ name: string; url: string }>;
 }
 
-const { title, description, canonical } = Astro.props;
+const { title, description, canonical, breadcrumbs } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
-    <SEOHead title={title} description={description} canonical={canonical} />
+    <SEOHead title={title} description={description} canonical={canonical} breadcrumbs={breadcrumbs} />
   </head>
   <body class="min-h-screen flex flex-col bg-neutral-50 text-neutral-800 antialiased">
     <Header />

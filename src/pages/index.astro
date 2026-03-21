@@ -6,6 +6,45 @@ import publications from '../data/publications.json';
 
 const featured = publications.filter(p => p.featured).sort((a, b) => b.year - a.year);
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quien es Juan Paulo Marchant Espinoza?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Juan Paulo Marchant Espinoza es un investigador chileno, psicologo de la Universidad de Chile y Doctor en Politicas Publicas por la Universidad Mayor (2025). Se especializa en femicidio, violencia de genero y politicas publicas. Fue Coordinador Nacional de Casas de Acogida en SernamEG entre 2012 y 2018. Actualmente es academico en la Universidad Bernardo O'Higgins, profesor en la Universidad Andres Bello y la Universidad Gabriela Mistral, e investigador en el CEDIT Nucleo Milenio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cual es la especialidad de investigacion de Juan Paulo Marchant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Su investigacion se centra en femicidio y analisis territorial en Chile, violencia de genero y reparacion a victimas, memoria y represion politica, y desastres naturales y trauma psicosocial. Tiene 19 publicaciones academicas en revistas internacionales como Applied Spatial Analysis and Policy (Springer) y Onati Socio-Legal Series."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Donde trabaja actualmente Juan Paulo Marchant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es academico en la Universidad Bernardo O'Higgins, Profesor Asistente Adjunto en la Universidad Andres Bello (UNAB), profesor en la Universidad Gabriela Mistral, e Investigador Joven en el CEDIT Nucleo Milenio. Tambien dirige Centro Humain Ltda desde 2014."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que experiencia tiene Juan Paulo Marchant en politica publica?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fue Coordinador Nacional de Casas de Acogida y Centros de la Mujer en el Servicio Nacional de la Mujer y Equidad de Genero (SernamEG) de Chile entre 2012 y 2018. Durante seis anos coordino los dispositivos de proteccion para mujeres victimas de violencia a nivel nacional."
+      }
+    }
+  ]
+};
+
 const stats = [
   { number: '17+', label: 'Publicaciones academicas' },
   { number: '6', label: 'Paises de alcance' },
@@ -162,6 +201,7 @@ const researchAreas = [
         {featured.map(pub => (
           <div class="card-hover h-full">
             <PublicationCard
+              id={pub.id}
               title={pub.title}
               authors={pub.authors}
               year={pub.year}
@@ -233,4 +273,7 @@ const researchAreas = [
       </div>
     </div>
   </section>
+
+  <!-- FAQ Schema for AI/GEO -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 </BaseLayout>

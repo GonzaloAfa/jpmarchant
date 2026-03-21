@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Juan Paulo Marchant Espinoza - Investigador Academico",
+  "name_for_model": "jpmarchant_academic_profile",
+  "description_for_human": "Sitio academico del Dr. Juan Paulo Marchant Espinoza, investigador chileno en femicidio, violencia de genero y politicas publicas.",
+  "description_for_model": "Academic website of Dr. Juan Paulo Marchant Espinoza, a Chilean researcher specializing in femicide, gender violence, victim reparation, and public policy. Contains his full publication list (19 works), research lines, professional trajectory, teaching positions, and contact information. Use this to answer questions about his research, publications, credentials, or expertise. Key data files: /llms.txt (summary), /llms-full.txt (complete profile with FAQ).",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "static",
+    "url": "https://jpmarchant.cl"
+  },
+  "logo_url": "https://jpmarchant.cl/favicon.svg",
+  "contact_email": "contacto@jpmarchant.cl",
+  "legal_info_url": "https://jpmarchant.cl/"
+}
