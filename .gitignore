@@ -4,4 +4,11 @@ dist/
 .vercel/
 .env
 .DS_Store
-ESTRATEGIA_MARKETING_ACADEMICO.md
+presenton_data/
+skills/
+skills-lock.json
+.agents/
+.agent/
+.claude/
+.kiro/
+_old/
