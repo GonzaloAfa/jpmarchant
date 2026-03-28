@@ -3,11 +3,11 @@ const currentPath = Astro.url.pathname;
 
 const links = [
   { href: '/', label: 'Inicio' },
-  { href: '/publicaciones', label: 'Publicaciones' },
-  { href: '/investigacion', label: 'Investigacion' },
-  { href: '/docencia', label: 'Docencia' },
-  { href: '/trayectoria', label: 'Trayectoria' },
-  { href: '/prensa', label: 'Prensa' },
+  { href: '/publicaciones/', label: 'Publicaciones' },
+  { href: '/investigacion/', label: 'Investigación' },
+  { href: '/docencia/', label: 'Docencia' },
+  { href: '/trayectoria/', label: 'Trayectoria' },
+  { href: '/prensa/', label: 'Prensa' },
 ];
 ---
 
@@ -36,7 +36,7 @@ const links = [
         </li>
       ))}
       <li>
-        <a href="/contacto" class="ml-2 px-4 py-2 text-sm font-medium text-white bg-primary-500 rounded-md hover:bg-primary-600 transition-colors no-underline">
+        <a href="/contacto/" class="ml-2 px-4 py-2 text-sm font-medium text-white bg-primary-500 rounded-md hover:bg-primary-600 transition-colors no-underline">
           Contacto
         </a>
       </li>
@@ -81,7 +81,7 @@ const links = [
           </li>
         ))}
       </ul>
-      <a href="/contacto" class="mt-6 block text-center px-4 py-3 text-white bg-primary-500 rounded-md font-medium no-underline hover:bg-primary-600">
+      <a href="/contacto/" class="mt-6 block text-center px-4 py-3 text-white bg-primary-500 rounded-md font-medium no-underline hover:bg-primary-600">
         Contacto
       </a>
       <div class="mt-auto pt-8 flex gap-4 justify-center text-neutral-400">

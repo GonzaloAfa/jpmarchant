@@ -18,7 +18,8 @@
       "territorio"
     ],
     "theme": "femicidio-territorio",
-    "featured": true
+    "featured": true,
+    "abstract": "Este estudio examina cómo la desigualdad territorial y la capacidad de gobernanza configuran la geografía del femicidio íntimo en Chile, utilizando datos a nivel municipal para el período 2008-2022 para analizar la asociación entre tasas de femicidio, desarrollo humano y capacidad estatal local. Los resultados muestran que los municipios con mayor desarrollo humano presentan menores tasas de femicidio, pero este efecto protector depende de la fortaleza de la gobernanza local."
   },
   {
     "id": "medidas-cautelares-2024",
@@ -147,7 +148,8 @@
       "dictadura",
       "memoria"
     ],
-    "theme": "memoria-represion"
+    "theme": "memoria-represion",
+    "abstract": "Este artículo aborda el caso de los fetos de mujeres embarazadas detenidas desaparecidas durante el golpe de Estado de 1973 en Chile, analizando las implicancias psicosociales y de derechos humanos de estos casos olvidados por la historia oficial."
   },
   {
     "id": "hinzpeter-foucault-2012",
@@ -165,7 +167,8 @@
       "poder",
       "politica"
     ],
-    "theme": "memoria-represion"
+    "theme": "memoria-represion",
+    "abstract": "Este artículo analiza la figura del entonces Ministro del Interior Rodrigo Hinzpeter desde los postulados teóricos de Michel Foucault sobre el poder, el control social y la gubernamentalidad, examinando las políticas de seguridad y orden público implementadas durante su gestión en Chile."
   },
   {
     "id": "reparacion-psicosocial-2012",
@@ -185,7 +188,8 @@
       "violencia-domestica",
       "comparado"
     ],
-    "theme": "genero-reparacion"
+    "theme": "genero-reparacion",
+    "abstract": "Este estudio comparativo analiza los procesos de reparación psicosocial en mujeres que han vivido situaciones de violencia doméstica en Asunción (Paraguay) y Santiago de Chile, examinando las intervenciones realizadas y los factores que inciden en la recuperación de las víctimas."
   },
   {
     "id": "iglesia-genero-poder-2012",
@@ -205,7 +209,8 @@
       "genero"
     ],
     "theme": "memoria-represion",
-    "featured": true
+    "featured": true,
+    "abstract": "Este libro tiene por objetivo analizar el caso del sacerdote Fernando Karadima Fariña, quien fue acusado de abuso sexual siendo párroco de la Iglesia del Sagrado Corazón de El Bosque en la comuna de Providencia en Santiago de Chile. Para ello, se analizan diversas entrevistas televisivas realizadas a los denunciantes, junto con el texto de María Olivia Mönckeberg 'Karadima el Señor de los Infiernos' y la denuncia interpuesta ante la Fiscalía Regional Metropolitana."
   },
   {
     "id": "fill-no-franco-2012",
@@ -223,7 +228,8 @@
       "dictadura",
       "madres"
     ],
-    "theme": "memoria-represion"
+    "theme": "memoria-represion",
+    "abstract": "Este capítulo analiza la represión sociocultural en Cataluña durante la dictadura franquista y el rol de las madres en la resistencia cultural, estableciendo un paralelo con las experiencias de represión en Chile y América Latina."
   },
   {
     "id": "genero-carceles-2011",
@@ -243,7 +249,8 @@
       "carceles",
       "latinoamerica"
     ],
-    "theme": "genero-reparacion"
+    "theme": "genero-reparacion",
+    "abstract": "Este artículo examina las condiciones de género en los sistemas penitenciarios de Latinoamérica, analizando la situación de las mujeres privadas de libertad y las desigualdades estructurales que enfrentan en las cárceles de la región."
   },
   {
     "id": "desplazamiento-chaiten-2011",
@@ -261,7 +268,8 @@
       "desastre",
       "psicosocial"
     ],
-    "theme": "desastres-trauma"
+    "theme": "desastres-trauma",
+    "abstract": "Este libro tiene por objetivo dar a conocer la experiencia de desplazamiento que sufrió la población de Chaitén en el año 2008 y que posteriormente se asentó en las ciudades de Puerto Montt y de la Isla de Chiloé. Se lleva a cabo una descripción de la ciudad previo al desastre, se definen conceptos clave y se analizan los efectos para la población tanto a nivel psicológico como socioeducativo y económico. Se revisa el Plan Nacional de Protección Civil del Gobierno Chileno, las medidas gubernamentales para paliar la situación de emergencia así como el proceso de reconstrucción denominado Santa Bárbara."
   },
   {
     "id": "represion-lenguaje-2010",
@@ -279,7 +287,8 @@
       "lenguaje",
       "dictadura"
     ],
-    "theme": "memoria-represion"
+    "theme": "memoria-represion",
+    "abstract": "Este artículo analiza cómo la dictadura militar en Chile transformó el lenguaje cotidiano como mecanismo de represión, examinando la evolución de los términos 'compañero', 'compa' y 'com' como reflejo de las dinámicas de control social y miedo instauradas por el régimen."
   },
   {
     "id": "dictadura-dano-2009",
@@ -297,7 +306,8 @@
       "violencia-estado",
       "dano"
     ],
-    "theme": "memoria-represion"
+    "theme": "memoria-represion",
+    "abstract": "Este artículo reflexiona sobre los efectos transgeneracionales de la violencia de Estado durante la dictadura militar chilena, interrogándose sobre si las nuevas generaciones son también producto del daño causado por la represión política y sus consecuencias psicosociales."
   },
   {
     "id": "agresion-sexual-2009",
@@ -317,7 +327,8 @@
       "terapia"
     ],
     "theme": "genero-reparacion",
-    "cited_by_count": 1
+    "cited_by_count": 1,
+    "abstract": "Este artículo aborda la agresión sexual ocurrida en el contexto de pareja y el proceso de reparación terapéutica realizado en casas de acogida del Servicio Nacional de la Mujer (SERNAM), enfocándose en la importancia del vínculo terapéutico. Se proponen tres intervenciones psicoterapéuticas desde un enfoque humanista, con la Psicoterapia Centrada en el Cliente de Rogers como eje principal, complementada con Arteterapia."
   },
   {
     "id": "escuelas-vulnerables-2009",
@@ -336,7 +347,8 @@
       "vulnerabilidad",
       "intervencion"
     ],
-    "theme": "genero-reparacion"
+    "theme": "genero-reparacion",
+    "abstract": "Este artículo revisa las condiciones internas de las instituciones educativas que inciden en la implementación y sostenibilidad de los procesos de mejora propuestos por programas de asesoría técnica externa en escuelas vulnerables de Latinoamérica. Los resultados proporcionan variables capaces de describir el estilo de liderazgo del director y el clima escolar al momento de implementar un programa de intervención externa."
   },
   {
     "id": "reaccions-maternes-2009",
@@ -354,7 +366,8 @@
       "maternidad",
       "cine"
     ],
-    "theme": "genero-reparacion"
+    "theme": "genero-reparacion",
+    "abstract": "Este artículo analiza las reacciones maternas inusuales frente al incesto paterno-filial a través de una mirada analógica desde la película 'Volver' de Pedro Almodóvar, examinando las dinámicas de silencio, complicidad y protección que emergen en estos contextos de violencia intrafamiliar."
   },
   {
     "id": "peritajes-psicologicos-2008",
@@ -373,6 +386,7 @@
       "forense"
     ],
     "theme": "genero-reparacion",
-    "cited_by_count": 0
+    "cited_by_count": 0,
+    "abstract": "Este artículo aborda la importancia de los informes periciales psicológicos en casos de delitos sexuales, donde típicamente solo existen la víctima y el victimario como protagonistas sin testigos presenciales. Se examinan los procedimientos psicodiagnósticos clínicos, la evaluación de los procedimientos vigentes en el sistema penal chileno y se propone una metodología de evaluación psicológica forense."
   }
 ]

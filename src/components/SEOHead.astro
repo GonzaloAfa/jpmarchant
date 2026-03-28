@@ -9,7 +9,8 @@ interface Props {
 
 const { title, description, canonical, ogImage = '/og-image.jpg', breadcrumbs } = Astro.props;
 const siteUrl = 'https://jpmarchant.cl';
-const fullCanonical = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
+const rawCanonical = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
+const fullCanonical = rawCanonical.endsWith('/') ? rawCanonical : `${rawCanonical}/`;
 
 // Person schema (global)
 const personSchema = {
