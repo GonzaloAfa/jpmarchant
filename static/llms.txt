@@ -1,0 +1,74 @@
+# Juan Paulo Marchant Espinoza
+
+> Juan Paulo Marchant Espinoza es psicólogo de la Universidad de Chile, Magíster en Estudios de Género y Cultura con mención en Humanidades por la misma universidad, y Doctor en Políticas Públicas por la Universidad Mayor, con especialización en femicidios y violencia de género. Con más de 15 años ...
+
+## Sobre este sitio
+
+Este es el sitio académico personal de Juan Paulo Marchant Espinoza. Contiene su producción académica, líneas de investigación, trayectoria profesional e información de contacto.
+
+## Páginas principales
+
+- [Inicio](https://jpmarchant.cl/): Inicio del investigador.
+- [Investigación](https://jpmarchant.cl/investigacion/): Investigación del investigador.
+- [Publicaciones](https://jpmarchant.cl/publicaciones/): Publicaciones del investigador.
+- [Trayectoria](https://jpmarchant.cl/trayectoria/): Trayectoria del investigador.
+- [Docencia](https://jpmarchant.cl/docencia/): Docencia del investigador.
+- [Prensa](https://jpmarchant.cl/prensa/): Prensa del investigador.
+- [Contacto](https://jpmarchant.cl/contacto/): Contacto del investigador.
+
+## Versiones en Markdown (para agentes de IA)
+
+- [Inicio](https://jpmarchant.cl/index.md)
+- [Sobre](https://jpmarchant.cl/about.md)
+- [Publicaciones](https://jpmarchant.cl/publicaciones.md)
+- [Investigación](https://jpmarchant.cl/investigacion.md)
+- [Docencia](https://jpmarchant.cl/docencia.md)
+- [Trayectoria](https://jpmarchant.cl/trayectoria.md)
+- [Prensa](https://jpmarchant.cl/prensa.md)
+- [Contacto](https://jpmarchant.cl/contacto.md)
+
+## Información del investigador
+
+- Nombre: Juan Paulo Marchant Espinoza
+- Email: contacto@jpmarchant.cl
+- ORCID: https://orcid.org/0000-0001-6651-7086
+- Google Scholar: https://scholar.google.com/citations?user=Tn9IUL8AAAAJ
+- Dialnet: https://dialnet.unirioja.es/servlet/autor?codigo=2495974
+- ANID: https://investigadores.anid.cl/es/public_search/researcher?id=32968
+- LinkedIn: https://www.linkedin.com/in/juan-paulo-marchant-espinoza-80955733
+
+## Afiliaciones actuales
+
+- Universidad Bernardo O'Higgins - Académico, Facultad de Ciencias Humanas (2025 - presente)
+- Universidad Andrés Bello - Profesor Asistente Adjunto, Escuela de Psicología (2019 - presente)
+- Centro Humain Ltda - Socio fundador y Director (2014 - presente)
+
+## Áreas de investigación
+
+- Femicidio y territorio: Análisis espacial y territorial de los femicidios en Chile, evaluando la capacidad del Estado para prevenir la violencia letal contra las mujeres. Incluye el estudio de medidas cautelares, casas de acogida y dispositivos de protección.
+- Género, violencia y reparación: Investigación sobre los procesos de reparación psicosocial en víctimas de violencia de género, con énfasis en modelos de intervención, masculinidades y experiencias comparadas en América Latina.
+- Memoria, represión y poder: Estudio de las consecuencias psicosociales de la dictadura militar en Chile, la represión del lenguaje, las formas de violencia institucional y el análisis del poder desde perspectivas foucaultianas.
+- Desastres y trauma psicosocial: Investigación sobre el impacto psicosocial de desastres naturales, con énfasis en el desplazamiento forzado y los procesos de reconstrucción comunitaria post-catástrofe.
+
+## Formación académica
+
+- Doctor en Políticas Públicas, Femicidios y Violencia de Género, Universidad Mayor (2025)
+- Postítulo en Género, Violencia y Reparación a Víctimas, Universidad de Chile (2015)
+- Magíster en Estudios de Género y Cultura, Mención Humanidades, Universidad de Chile (2013)
+- Psicólogo, Aprobado con Distinción Máxima (6.2), Universidad de Chile (2011)
+- Postítulo en Psicoterapia Humanista Experiencial, Universidad de Chile (2010)
+- Diploma de Extensión en Estudios de Género, Memoria, Sexualidad y Género, Universidad de Chile (2009)
+- Licenciado en Psicología, Universidad de Chile (2009)
+- Bachiller en Ciencias Sociales y Humanidades, Universidad de Chile (2006)
+
+## Publicaciones destacadas
+
+- Cazzuffi, C., Marchant, J. P., Arensburg, S. (2025). Femicide, Development, and State Capacity in Chile. Applied Spatial Analysis and Policy. doi:10.1007/s12061-025-09783-y
+- Marchant, J. P., Rocha-Jimenez, T., Cordova Sanchez, C. A. (2024). Caracterización y análisis de las medidas cautelares de los casos de femicidios en Chile (2008-2022). Onati Socio-Legal Series.
+- Marchant, J. P., et al. (2023). Traducción, validación y adaptación del español al Kreyol-creole haitiano de la Escala de Depresión del Centro de Estudios Epidemiológicos (CESD-R-20). Terapia Psicologica. doi:10.4067/s0718-48082023000200177
+- Marchant, J. P. (2022). Denunciar violencia de pareja en Chile: Aspectos a considerar desde el Aparato Estatal. Sortuz: Onati Journal of Emergent Socio-Legal Studies.
+- Marchant, J. P. (2012). Iglesia, Género y Poder. El Caso Karadima. Editorial Academica Espanola (EAE), Saarbrucken, Alemania. ISBN:9783848478675
+
+## Palabras clave
+
+Femicidio, Violencia de género, Políticas públicas, Reparación a víctimas, Represión política, Estudios de género

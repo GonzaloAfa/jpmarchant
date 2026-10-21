@@ -1,0 +1,11 @@
+# Robots.txt for Juan Paulo Marchant Espinoza
+# https://jpmarchant.cl
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://jpmarchant.cl/sitemap.xml
+
+# LLMs.txt
+# See https://jpmarchant.cl/llms.txt for structured information about this researcher
