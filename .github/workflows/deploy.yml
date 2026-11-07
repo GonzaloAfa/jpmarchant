@@ -1,0 +1,21 @@
+# Sube static/ a S3 + CloudFront cuando cambia (infra: GonzaloAfa/infra-comun, stack jpmarchant-sitio).
+# Sin build: el HTML ya viene generado en static/.
+name: deploy
+
+on:
+  push:
+    branches: [main]
+    paths: ['static/**']
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    uses: GonzaloAfa/infra-comun/.github/workflows/deploy-estatico.yml@main
+    with:
+      stack: jpmarchant-sitio
+      build: ''
+      dist: static
